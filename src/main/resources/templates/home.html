@@ -6,10 +6,99 @@
         <title>FindMyTutor</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="css/home.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        Hi!
-        <script src="" async defer></script>
+        <header>
+            <div class="logo">FindMyTutor</div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <nav class="nav-bar">
+                <ul>
+                    <li>
+                        <a href="" class="active">Find My Tutor</a>
+                    </li>
+                    <li>
+                        <a href="">Sign in</a>
+                    </li>
+                    <li>
+                        <a href="">Sign up</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="body-container">
+            <div class="progress-bar">
+                <div class="step">
+                    <div class="bullet">
+                        <span>1</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+
+                <div class="step">
+                    <div class="bullet">
+                        <span>2</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+
+                <div class="step">
+                    <div class="bullet">
+                        <span>3</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+            </div>
+            <div class="form-outer">
+                <form action="#">
+                    <div class="page slidepage">
+                        <button class="w-btn1 w-btn-blue nextBtn" type="button">
+                            In-person
+                        </button>
+                        <button class="w-btn1 w-btn-blue nextBtn" type="button">
+                            Virtual
+                        </button>
+                    </div>
+
+                    <div class="page">
+                        <button class="w-btn2 w-btn-blue nextBtn" type="button">
+                            Programming
+                        </button>
+                        <button class="w-btn2 w-btn-blue nextBtn" type="button">
+                            Math
+                        </button>
+                        <button class="w-btn2 w-btn-blue nextBtn" type="button">
+                            English
+                        </button>
+                    </div>
+
+                    <div class="page">
+                        <button class="w-btn2 w-btn-blue submitBtn" type="button">
+                            $40 - $50
+                        </button>
+                        <button class="w-btn2 w-btn-blue submitBtn" type="button">
+                            $50 - $60
+                        </button>
+                        <button class="w-btn2 w-btn-blue submitBtn" type="button">
+                            $60 - $70
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            hamburger = document.querySelector(".hamburger");
+            hamburger.onclick = function() {
+                navBar = document.querySelector(".nav-bar");
+                navBar.classList.toggle("active");
+            }
+        </script>
+        <script src="js/home.js"></script>
     </body>
 </html>
