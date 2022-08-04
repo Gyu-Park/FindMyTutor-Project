@@ -1,7 +1,5 @@
 package com.project.findmytutor.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,9 +34,6 @@ public class Tutor {
     private String location;
 
     @Column(nullable = false)
-    private List<String> subject;
-
-    @Column(nullable = false)
     private String priceRange;
 
     @Column
@@ -48,15 +43,14 @@ public class Tutor {
 
     }
 
-    public Tutor(Long tutorId, String email, String password, String name, String phone, String location,
-            List<String> subject, String priceRange, String picture) {
+    public Tutor(Long tutorId, String email, String password, String name, 
+                String phone, String location, String priceRange, String picture) {
         this.tutorId = tutorId;
         this.email = email;
         this.password = password;
         this.name = name;
         this.phone = phone;
         this.location = location;
-        this.subject = subject;
         this.priceRange = priceRange;
         this.picture = picture;
     }
