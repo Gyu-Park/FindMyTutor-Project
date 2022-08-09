@@ -161,20 +161,32 @@
     height: 100vh;
     z-index: 1;
     background: rgba(0,0,0,0.5);
-    /* display: none; */
+    display: none;
 }
 
 .popup {
     position: absolute;
-    top: 50%;
+    top: -150%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%) scale(1. 15); */
     width: 360px;
     height: 400px;
     background: #fefefe;
     z-index: 2;
+    opacity: 0;
     box-shadow: 5px 5px 3px rgba(0,0,0,0.2);
     border-radius: 30px;
+    transition: opacity 500ms ease-in-out;
+}
+
+body.showLoginForm .popup-overlay {
+    display: block;
+}
+
+body.showLoginForm .popup {
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .popup .popup-close {
