@@ -1,0 +1,10 @@
+type Query {
+    tutors: [Tutor]
+}
+
+type Tutor {
+    tutorId: ID!
+    email: String!
+    name: String!
+    phone: String!
+}
