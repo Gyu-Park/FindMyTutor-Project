@@ -100,6 +100,25 @@
     width: 100%;
 }
 
+.tutor-inner-container .tutor-send-request {
+    display: flex;
+    flex: 40%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.tutor-send-request button {
+    background: #4169e1;
+    color: #fefefe;
+    font-weight: bold;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    height: 20%;
+    width: 80%;
+}
+
 /* pagination */
 .pagination {
     display: flex;
@@ -155,4 +174,221 @@
 .pagination ul li.btn:hover {
     background: #fefefe;
     color: #4169e1;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+
+/* login popup */
+.popup-login {
+    position: absolute;
+    top: -150%;
+    left: 50%;
+    /* transform: translate(-50%, -50%) scale(1. 15); */
+    width: 360px;
+    height: 400px;
+    background: #fefefe;
+    z-index: 2;
+    opacity: 0;
+    box-shadow: 5px 5px 3px rgba(0,0,0,0.2);
+    border-radius: 30px;
+    transition: opacity 500ms ease-in-out;
+}
+
+body.showLoginForm #popup-overlay-login {
+    display: block;
+}
+
+body.showLoginForm .popup-login {
+    position: fixed;
+    top: 55%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-login #login-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 40px;
+    height: 40px;
+    background: #4169e1;
+    color: #fefefe;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.popup-login .form h1 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: #4169e1;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.popup-login .form .element {
+    padding: 8px 20px;
+}
+
+.popup-login .form .element label {
+    display: block;
+    text-align: left;
+    left: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #4169e1;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.popup-login .form .element input {
+    width: 100%;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #4169e1;
+    background: #fefefe;
+    border-radius: 20px;
+}
+
+.popup-login .form .forgot-pass {
+    text-align: left;
+    margin-left: 25px;
+    font-size: 14px;
+}
+
+.popup-login .form .forgot-pass a {
+    color: #4169e1;
+    text-decoration: none;
+}
+
+.popup-login .form .forgot-pass a:hover {
+    text-decoration: underline;
+}
+
+.popup-login .form .element button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px 0px;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    background: #4169e1;
+    color: #fefefe;
+}
+
+.popup-login .form .signup-link {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.popup-login .form .signup-link a {
+    color: #4169e1;
+    text-decoration: none;
+}
+
+.popup-login .form .signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* request popup */
+body.showRequestForm #popup-overlay-request {
+    display: block;
+}
+
+body.showRequestForm .popup-request {
+    position: fixed;
+    top: 55%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-request #request-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 40px;
+    height: 40px;
+    background: #4169e1;
+    color: #fefefe;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.popup-request {
+    position: absolute;
+    top: -150%;
+    left: 50%;
+    /* transform: translate(-50%, -50%) scale(1. 15); */
+    width: 500px;
+    height: 530px;
+    background: #fefefe;
+    z-index: 2;
+    opacity: 0;
+    box-shadow: 5px 5px 3px rgba(0,0,0,0.2);
+    border-radius: 30px;
+    transition: opacity 500ms ease-in-out;
+}
+
+.popup-request .form {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 15% 70% 15%;
+}
+
+.popup-request .form h1 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: #4169e1;
+    margin-top: 20px;
+}
+
+.popup-request .form .element {
+    padding: 8px 20px;
+}
+
+.popup-request .form .element textarea {
+    width: 100%;
+    height: 100%;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #4169e1;
+    background: #fefefe;
+    border-radius: 20px;
+}
+
+.popup-request .form .element button {
+    width: 100%;
+    padding: 10px 0px;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    background: #4169e1;
+    color: #fefefe;
 }

@@ -52,22 +52,8 @@
                 <div class="tutor-intro">
                     <span>I will teach you programming!</span>
                 </div>
-            </div>
-        </div>
-        <div class="tutor-container">
-            <div class="tutor-img">
-                <img src="img/profile.jpg" />
-            </div>
-            <div class="tutor-inner-container">
-                <div class="tutor-info">
-                    <span>Name: </span>
-                    <span>From: </span>
-                    <span>Subjects: </span>
-                    <span>Price: </span>
-                    <span>Ratings: </span>
-                </div>
-                <div class="tutor-intro">
-                    <span>I will teach you programming!</span>
+                <div class="tutor-send-request" onclick="openLoginForm()">
+                    <button>Send a request</button>
                 </div>
             </div>
         </div>
@@ -85,6 +71,29 @@
                 </div>
                 <div class="tutor-intro">
                     <span>I will teach you programming!</span>
+                </div>
+                <div class="tutor-send-request" onclick="openRequestForm()">
+                    <button>Send a request</button>
+                </div>
+            </div>
+        </div>
+        <div class="tutor-container">
+            <div class="tutor-img">
+                <img src="img/profile.jpg" />
+            </div>
+            <div class="tutor-inner-container">
+                <div class="tutor-info">
+                    <span>Name: </span>
+                    <span>From: </span>
+                    <span>Subjects: </span>
+                    <span>Price: </span>
+                    <span>Ratings: </span>
+                </div>
+                <div class="tutor-intro">
+                    <span>I will teach you programming!</span>
+                </div>
+                <div class="tutor-send-request" onclick="openLoginForm()">
+                    <button>Send a request</button>
                 </div>
             </div>
         </div>
@@ -109,6 +118,39 @@
                 <li class="numb"><span>7</span></li>
                 <li class="btn next"><span>Next <i class="fas fa-angle-right"></i></span></li> -->
             </ul>
+        </div>
+        <div class="popup-overlay" id="popup-overlay-login"></div>
+        <div class="popup-login">
+            <div class="popup-close" id="login-close" onclick="closeLoginForm()">&times;</div>
+            <div class="form">
+                <h1>Sign in</h1>
+                <div class="element">
+                    <label for="email">Email</label>
+                    <input type="text" id="email">
+                </div>
+                <div class="element">
+                    <label for="password">Password</label>
+                    <input type="password" id="password">
+                </div>
+                <div class="forgot-pass"><a href="#">Forgot Password?</a></div>
+                <div class="element">
+                    <button>Sign-in</button>
+                </div>
+                <div class="signup-link"><a href="#">Not a member? Signup now</a></div>
+            </div>
+        </div>
+        <div class="popup-overlay" id="popup-overlay-request"></div>
+        <div class="popup-request">
+            <div class="popup-close" id="request-close" onclick="closeRequestForm()">&times;</div>
+            <div class="form">
+                <h1>Send a request to this tutor</h1>
+                <div class="element">
+                    <textarea type="text" id="request"></textarea>
+                </div>
+                <div class="element">
+                    <button>Send</button>
+                </div>
+            </div>
         </div>
     </div>
 

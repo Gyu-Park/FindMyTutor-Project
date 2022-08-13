@@ -57,4 +57,20 @@ function element(totalPages, page) {
     }
     ulTag.innerHTML = liTag;
 }
-element(totalPages, 5);
+element(totalPages, 1);
+
+// login form
+function openLoginForm() {
+    document.body.classList.add("showLoginForm");
+}
+function closeLoginForm() {
+    document.body.classList.remove("showLoginForm");
+}
+
+// request form
+function openRequestForm() {
+    document.body.classList.add("showRequestForm");
+}
+function closeRequestForm() {
+    document.body.classList.remove("showRequestForm");
+}
