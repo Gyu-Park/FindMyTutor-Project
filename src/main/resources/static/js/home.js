@@ -47,11 +47,3 @@ for (let i = 0; i < submitBtn.length; i++) {
         // }, 500);
     });
 }
-
-// login form
-function openLoginForm() {
-    document.body.classList.add("showLoginForm");
-}
-function closeLoginForm() {
-    document.body.classList.remove("showLoginForm");
-}
