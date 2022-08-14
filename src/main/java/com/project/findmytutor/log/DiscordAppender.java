@@ -61,7 +61,7 @@ public class DiscordAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
 
             String json = objectMapper.writeValueAsString(message);
 
-            RequestBody body = RequestBody.create(JSON, json);
+            RequestBody body = RequestBody.create(json, JSON);
             Request request = new Request.Builder()
                     .url(webhookUri)
                     .post(body)
