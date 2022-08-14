@@ -2,6 +2,7 @@
 <configuration>
  
     <property name="LOGS" value="./logs" />
+    <property resource="application.properties" />
  
     <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
@@ -47,22 +48,20 @@
     <springProperty name="USERNAME" source="discord.username"/>
     <springProperty name="WEBHOOK_URI" source="discord.webhook"/>
 
-    <appender name="DISCORD" class="com.github.napstr.logback.DiscordAppender">
+    <appender name="DISCORD" class="com.project.findmytutor.log.DiscordAppender">
         <webhookUri>${WEBHOOK_URI}</webhookUri>
-        <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%d{HH:mm:ss} [%thread] [%-5level] %logger{36} - %msg%n```%ex{full}```</pattern>
-        </layout>
-        <username>${USERNAME}</username>
-        <embedsColor>15744574</embedsColor>
-        <stackTraceMaxSize>5</stackTraceMaxSize>
-        <tts>false</tts>
+         <layout class="ch.qos.logback.classic.PatternLayout">
+             <pattern>%d{HH:mm:ss} [%thread] [%-5level] %logger{36} - %msg%n```%ex{full}```</pattern>
+         </layout>
+         <username>${USERNAME}</username>
+         <tts>false</tts>
      </appender>
  
      <appender name="ASYNC_DISCORD" class="ch.qos.logback.classic.AsyncAppender">
-        <appender-ref ref="DISCORD" />
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>ERROR</level>
-        </filter>
+         <appender-ref ref="DISCORD" />
+         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+             <level>ERROR</level>
+         </filter>
      </appender>
 
     <!-- LOG everything at INFO level -->
@@ -72,7 +71,7 @@
     </root>
      
     <!-- LOG "com.plantplaces.*" at TRACE level -->
-    <logger name="com.plantplaces" level="trace" additivity="false">
+    <logger name="com.project.findmytutor" level="trace" additivity="false">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />
         <appender-ref ref="SevereRollingFile" />
