@@ -1,9 +1,17 @@
 type Query {
     tutors: [Tutor]
+    students: [Student]
 }
 
 type Tutor {
     tutorId: ID!
+    email: String!
+    name: String!
+    phone: String!
+}
+
+type Student {
+    studentId: ID!
     email: String!
     name: String!
     phone: String!
