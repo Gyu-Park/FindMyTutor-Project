@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoginRequest {
+public class SigninRequest {
 
     @NotBlank(message = "Please Fill in your email")
     @Email(message = "Not a valid email")
