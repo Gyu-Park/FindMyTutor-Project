@@ -4,21 +4,20 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.project.findmytutor.model.Tutor;
-import com.project.findmytutor.repository.TutorRepository;
+import com.project.findmytutor.model.Student;
+import com.project.findmytutor.repository.StudentRepository;
 
 import lombok.AllArgsConstructor;
 
 @Controller
-@RequestMapping("/api/tutor")
+@RequestMapping("/api/student")
 @AllArgsConstructor
-public class TutorController {
+public class StudentController {
 
-    private final TutorRepository tutorRepository;
+    private final StudentRepository studentRepository;
 
     @QueryMapping
-    Iterable<Tutor> tutors() {
-        return tutorRepository.findAll();
-    }
-    
+    Iterable<Student> students() {
+        return studentRepository.findAll();
+    }    
 }
