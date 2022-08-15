@@ -20,7 +20,7 @@ public class FindmytutorApplication {
 	@Bean
 	ApplicationRunner applicationRunner(TutorRepository tutorRepository, StudentRepository studentRepository) {
 		return args -> {
-			tutorRepository.save(new Tutor(null, "gp2693@gmail.com", "Gyuseok Park", "0123456789"));
+			tutorRepository.save(new Tutor(null, "gp2693@gmail.com", "1234", "Gyuseok Park", "0123456789"));
 			Student student = new Student();
 			student.setEmail("gp2693@gmail.com");
 			student.setName("Gyuseok");

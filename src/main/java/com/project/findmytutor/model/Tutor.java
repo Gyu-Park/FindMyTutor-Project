@@ -20,8 +20,8 @@ public class Tutor {
     @Column
     private String email;
 
-    // @Column
-    // private String password;
+    @Column
+    private String password;
 
     @Column
     private String name;
@@ -42,9 +42,10 @@ public class Tutor {
 
     }
 
-    public Tutor(Long tutorid, String email, String name, String phone) {
+    public Tutor(Long tutorid, String email, String password, String name, String phone) {
         this.tutorId = tutorid;
         this.email = email;
+        this.password = password;
         this.name = name;
         this.phone = phone;
     }
