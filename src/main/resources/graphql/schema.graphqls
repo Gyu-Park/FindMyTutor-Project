@@ -1,18 +1,12 @@
 type Query {
-    tutors: [Tutor]
-    students: [Student]
+    members: [Member]
 }
 
-type Tutor {
-    tutorId: ID!
+type Member {
+    memberId: ID!
     email: String!
     name: String!
     phone: String!
-}
-
-type Student {
-    studentId: ID!
-    email: String!
-    name: String!
-    phone: String!
+    location: String!
+    role: String!
 }

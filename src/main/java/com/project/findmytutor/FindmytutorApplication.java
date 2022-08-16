@@ -5,10 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.project.findmytutor.model.Student;
-import com.project.findmytutor.model.Tutor;
-import com.project.findmytutor.repository.StudentRepository;
-import com.project.findmytutor.repository.TutorRepository;
+import com.project.findmytutor.model.Member;
+import com.project.findmytutor.repository.MemberRepository;
 
 @SpringBootApplication
 public class FindmytutorApplication {
@@ -18,14 +16,9 @@ public class FindmytutorApplication {
 	}
 
 	@Bean
-	ApplicationRunner applicationRunner(TutorRepository tutorRepository, StudentRepository studentRepository) {
+	ApplicationRunner applicationRunner(MemberRepository memberRepository) {
 		return args -> {
-			tutorRepository.save(new Tutor(null, "gp2693@gmail.com", "1234", "Gyuseok Park", "0123456789"));
-			Student student = new Student();
-			student.setEmail("gp2693@gmail.com");
-			student.setName("Gyuseok");
-			student.setPhone("9876543210");
-			studentRepository.save(student);
+			memberRepository.save(new Member(null, "gp2693@gmail.com", "1234", "Gyuseok Park", "0123456789", "New York", "Tutor"));
 		};
 	}
 }

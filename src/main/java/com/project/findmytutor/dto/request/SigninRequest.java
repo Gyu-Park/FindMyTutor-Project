@@ -9,6 +9,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+
 @Data
 @Getter
 @NoArgsConstructor
@@ -21,5 +23,9 @@ public class SigninRequest {
     
     @NotNull(message = "Please Fill in your password")
     private String password;
+
+    public UsernamePasswordAuthenticationToken toAuthentication() {
+        return new UsernamePasswordAuthenticationToken(this.email, this.password);
+    }
     
 }
