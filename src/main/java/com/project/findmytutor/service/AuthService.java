@@ -46,7 +46,7 @@ public class AuthService {
         UsernamePasswordAuthenticationToken authenticationToken = signinRequest.toAuthentication();
 
         // 2. Password check
-        //    authenticate 메서드가 실행이 될 때 CustomUserDetailsService 에서 만들었던 loadUserByUsername 메서드가 실행됨
+        //    when authenticate method is called, loadUserByUsername in CustomUserDetailsService is called
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
 
         // 3. Generate JWT token based on given info
