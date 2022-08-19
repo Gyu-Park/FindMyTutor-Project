@@ -1,8 +1,6 @@
 package com.project.findmytutor.dto.request;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
