@@ -53,3 +53,23 @@
 // }
 
 // index.init();
+
+// var form = document.getElementById('signup-form');
+
+function signup(){
+   
+    fetch("http://localhost:8080/api/auth/signup", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            firstName: $("#signup-firstName").val(),
+            lastName: $("#signup-lastName").val(),
+            email: $("#signup-email").val(),
+            password: $("#signup-password").val()
+        }),
+    })
+    .then((response) => response.json())
+    .then((data) => console.log(data)).catch(error => console.error('Error:', error)); 
+}

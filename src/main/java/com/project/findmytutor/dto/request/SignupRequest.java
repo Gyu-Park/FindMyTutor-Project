@@ -9,12 +9,10 @@ import com.project.findmytutor.model.Member;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class SignupRequest {
@@ -29,10 +27,7 @@ public class SignupRequest {
     private String password;
 
     public Member toMember(PasswordEncoder passwordEncoder) {
-        Member member = new Member();
-        member.setEmail(email);
-        member.setName(firstName + " " + lastName);
-        member.setPassword(passwordEncoder.encode(password));
+        Member member = new Member(email, passwordEncoder.encode(password), firstName + " " + lastName);
         return member;
     }
     

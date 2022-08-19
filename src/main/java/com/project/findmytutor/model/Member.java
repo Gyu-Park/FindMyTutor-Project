@@ -7,15 +7,19 @@ import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 public class Member {
+
+    public Member(String email, String password, String name) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+    }
 
     @Id
     @GeneratedValue
@@ -30,12 +34,12 @@ public class Member {
     @Column
     private String name;
 
-    @Column
+    @Column(nullable = true)
     private String phone;
 
-    @Column
+    @Column(nullable = true)
     private String location;
     
-    @Column
+    @Column(nullable = true)
     private String role;
 }

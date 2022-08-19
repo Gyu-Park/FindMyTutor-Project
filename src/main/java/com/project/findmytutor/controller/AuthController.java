@@ -29,7 +29,7 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<Void> signup(@Valid final SignupRequest signupRequest) {
+    public ResponseEntity<Void> signup(@RequestBody @Valid final SignupRequest signupRequest) {
         authService.signup(signupRequest);
 
         return ResponseEntity.status(HttpStatus.CREATED).build();

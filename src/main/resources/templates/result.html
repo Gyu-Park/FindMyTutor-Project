@@ -144,7 +144,7 @@
         <div class="popup-overlay" id="popup-overlay-registration"></div>
         <div class="popup-registration">
             <div class="popup-close" id="registration-close" onclick="closeRegistrationForm()">&times;</div>
-            <form action="/api/auth/signup" class="form" method="post">
+            <form action="/api/auth/signup" class="form" method="post" id="signup-form">
                 <h1>Sign up</h1>
                 <div class="element-name">
                     <div class="fname">
@@ -170,7 +170,7 @@
                     <input type="password" id="password">
                 </div>
                 <div class="element">
-                    <button type="submit" id="btn-signup">Sign-up</button>
+                    <button type="button" id="btn-signup" onclick="signup()">Sign-up</button>
                 </div>
                 <div class="signin-link"><a id="signin-link" onclick="signInLinkFunction()">Already a member? Sign-in now</a></div>
             </form>
