@@ -11,20 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.findmytutor.dto.request.SigninRequest;
 import com.project.findmytutor.dto.request.SignupRequest;
-import com.project.findmytutor.dto.request.TokenRequest;
-import com.project.findmytutor.dto.response.AuthResponse;
 import com.project.findmytutor.service.AuthService;
 
 import lombok.RequiredArgsConstructor;
 
 @Controller
-@RequestMapping("/api/auth")
 @RequiredArgsConstructor
+@RequestMapping("/api/auth")
 public class AuthController {
+
     private final AuthService authService;
-    
+
     @PostMapping("/signin")
-    public ResponseEntity<TokenRequest> signin(@Valid final SigninRequest signinRequest) {
+    public ResponseEntity<SigninRequest> signin (@RequestBody @Valid final SigninRequest signinRequest) {
         return ResponseEntity.ok(authService.signin(signinRequest));
     }
 
@@ -34,14 +33,5 @@ public class AuthController {
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-
-    @PostMapping("/token")
-    public ResponseEntity<AuthResponse> token() {
-        return ResponseEntity.ok().build();
-    }
-
-    @PostMapping("/reissue")
-    public ResponseEntity<TokenRequest> reissue(@RequestBody TokenRequest tokenRequestDto) {
-        return ResponseEntity.ok(authService.reissue(tokenRequestDto));
-    }
+    
 }

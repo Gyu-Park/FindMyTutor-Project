@@ -2,70 +2,79 @@ package com.project.findmytutor.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
-import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.project.findmytutor.exceptions.JwtAccessDeniedHandler;
-import com.project.findmytutor.exceptions.JwtAuthenticationEntryPoint;
-import com.project.findmytutor.infrastructure.TokenProvider;
-
-import lombok.RequiredArgsConstructor;
+import com.project.findmytutor.model.CustomUserDetails;
+import com.project.findmytutor.service.CustomUserDetailsService;
 
 @EnableWebSecurity
 @Configuration
-@RequiredArgsConstructor
 public class WebSecurityConfigure {
-    private final TokenProvider tokenProvider;
-    private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
-    private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
+
+    @Bean
+	public UserDetails userDetails() {
+		return new CustomUserDetails();
+	}
+
+    @Bean
+	public UserDetailsService userDetailsService() {
+		return new CustomUserDetailsService();
+	}
     
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+    /** retrieve user information from a database for UserDetailsService **/
+	@Bean
+	public DaoAuthenticationProvider authenticationProvider() {
+		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+		authProvider.setUserDetailsService(userDetailsService());
+		authProvider.setPasswordEncoder(passwordEncoder());
+		
+		return authProvider;
+	}
     
     // ignore h2 database API
-    @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().antMatchers("/h2-console/**", "/favicon.ico");
-    }
+    // @Bean
+    // public WebSecurityCustomizer webSecurityCustomizer() {
+    //     return (web) -> web.ignoring().antMatchers("/h2-console/**", "/favicon.ico");
+    // }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         // CSRF config Disable
     http.csrf().disable()
 
-        // add jwtAuthenticationEntryPoint and jwtAccessDeniedHandler when exception handling is called
-        .exceptionHandling()
-        .authenticationEntryPoint(jwtAuthenticationEntryPoint)
-        .accessDeniedHandler(jwtAccessDeniedHandler)
-
         // config for h2-console
-        .and()
-        .headers()
-        .frameOptions()
-        .sameOrigin()
-
-        // session off as STATELESS
-        .and()
-        .sessionManagement()
-        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        // .headers()
+        // .frameOptions()
+        // .sameOrigin()
 
         // requests handling
-        .and()
+        .authenticationProvider(authenticationProvider())
         .authorizeRequests()
-        // .antMatchers("/api/auth/**").permitAll()
-        // .anyRequest().authenticated()
+        .antMatchers("/", "/home").authenticated()
         .anyRequest().permitAll()
 
-        // JwtSecurityConfig as JwtFilter
         .and()
-        .apply(new JwtSecurityConfig(tokenProvider));
+        .formLogin()
+            .usernameParameter("email")
+            .passwordParameter("password")
+            .defaultSuccessUrl("/result")
+            .permitAll()
+        .and()
+        .logout()
+            .permitAll()
+            .logoutSuccessUrl("/result");
 
         return http.build();
     }

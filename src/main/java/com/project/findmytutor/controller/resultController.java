@@ -10,4 +10,5 @@ public class ResultController {
     public String result() {
         return "result";
     }
+    
 }

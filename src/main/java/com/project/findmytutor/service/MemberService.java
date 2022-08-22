@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.project.findmytutor.repository.MemberRepository;
 import com.project.findmytutor.dto.response.MemberResponse;
 import com.project.findmytutor.model.Member;
-import com.project.findmytutor.config.SecurityUtil;
 
 @Service
 @Transactional
@@ -29,11 +28,5 @@ public class MemberService {
         return memberRepository.findByEmail(email)
                 .map(MemberResponse::of)
                 .orElseThrow(() -> new RuntimeException("There's no that member info."));
-    }
-
-    public MemberResponse getCurrMemberInfo(String email) {
-        return memberRepository.findByEmail(SecurityUtil.getCurrentMemberId())
-                .map(MemberResponse::of)
-                .orElseThrow(() -> new RuntimeException("There's no login member."));
     }
 }

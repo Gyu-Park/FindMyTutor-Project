@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +11,14 @@
         <link rel="stylesheet" href="css/nav.css">
         <link rel="stylesheet" href="css/home.css">
         <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        <script>
+            hamburger = document.querySelector(".hamburger");
+            hamburger.onclick = function() {
+                navBar = document.querySelector(".nav-bar");
+                navBar.classList.toggle("active");
+            }
+        </script>
+        <script src="js/home.js"></script>
     </head>
     <body>
         <header>
@@ -24,7 +34,12 @@
                         <a href="" class="active">Find My Tutor</a>
                     </li>
                     <li>
-                        <a href="">Sign in</a>
+                        <div sec:authorize="!isAuthenticated()" style="display: inline-block">
+                            <a href="" >Sign in</a>
+                        </div>
+                        <div sec:authorize="isAuthenticated()" style="display: inline-block">
+                            <a href="">Sign out</a>
+                        </div>
                     </li>
                     <li>
                         <a href="">Account</a>
@@ -95,14 +110,5 @@
                 </form>
             </div>
         </div>
-
-        <script>
-            hamburger = document.querySelector(".hamburger");
-            hamburger.onclick = function() {
-                navBar = document.querySelector(".nav-bar");
-                navBar.classList.toggle("active");
-            }
-        </script>
-        <script src="js/home.js"></script>
     </body>
 </html>

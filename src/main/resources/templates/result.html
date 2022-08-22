@@ -1,197 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Result</title>
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/result.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-</head>
-<body>
-    <header>
-        <div class="logo">FindMyTutor</div>
-        <div class="hamburger">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-        </div>
-        <nav class="nav-bar">
-            <ul>
-                <li>
-                    <a href="" class="active">Find My Tutor</a>
-                </li>
-                <li>
-                    <a href="">Sign in</a>
-                </li>
-                <li>
-                    <a href="">Account</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <div class="body-container">
-        <div class="edit-container">
-            <button class="edit" id="edit" type="button">Edit</button>
-            <button class="edit" type="button"># Online</button>
-            <button class="edit" type="button"># Programming</button>
-            <button class="edit" type="button"># $60 - $70</button>
-        </div>
-        <div class="tutor-container">
-            <div class="tutor-img">
-                <img src="img/profile.jpg" />
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search Result</title>
+        <link rel="stylesheet" href="css/nav.css">
+        <link rel="stylesheet" href="css/result.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="logo">FindMyTutor</div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
             </div>
-            <div class="tutor-inner-container">
-                <div class="tutor-info">
-                    <span>Name: </span>
-                    <span>From: </span>
-                    <span>Subjects: </span>
-                    <span>Price: </span>
-                    <span>Ratings: </span>
-                </div>
-                <div class="tutor-intro">
-                    <span>I will teach you programming!</span>
-                </div>
-                <div class="tutor-send-request">
-                    <button onclick="openLoginForm()">Send a request</button>
-                </div>
+            <nav class="nav-bar">
+                <ul>
+                    <li>
+                        <a href="" class="active">Find My Tutor</a>
+                    </li>
+                    <li>
+                        <div sec:authorize="!isAuthenticated()" style="display: inline-block">
+                            <a href="" >Sign in</a>
+                        </div>
+                        <div sec:authorize="isAuthenticated()" style="display: inline-block">
+                            <a href="">Sign out</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">Account</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="body-container">
+            <div class="edit-container">
+                <button class="edit" id="edit" type="button">Edit</button>
+                <button class="edit" type="button"># Online</button>
+                <button class="edit" type="button"># Programming</button>
+                <button class="edit" type="button"># $60 - $70</button>
             </div>
-        </div>
-        <div class="tutor-container">
-            <div class="tutor-img">
-                <img src="img/profile.jpg" />
-            </div>
-            <div class="tutor-inner-container">
-                <div class="tutor-info">
-                    <span>Name: </span>
-                    <span>From: </span>
-                    <span>Subjects: </span>
-                    <span>Price: </span>
-                    <span>Ratings: </span>
+            <div class="tutor-container">
+                <div class="tutor-img">
+                    <img src="img/profile.jpg" />
                 </div>
-                <div class="tutor-intro">
-                    <span>I will teach you programming!</span>
-                </div>
-                <div class="tutor-send-request">
-                    <button onclick="openRequestForm()">Send a request</button>
-                </div>
-            </div>
-        </div>
-        <div class="tutor-container">
-            <div class="tutor-img">
-                <img src="img/profile.jpg" />
-            </div>
-            <div class="tutor-inner-container">
-                <div class="tutor-info">
-                    <span>Name: </span>
-                    <span>From: </span>
-                    <span>Subjects: </span>
-                    <span>Price: </span>
-                    <span>Ratings: </span>
-                </div>
-                <div class="tutor-intro">
-                    <span>I will teach you programming!</span>
-                </div>
-                <div class="tutor-send-request">
-                    <button onclick="openRegistrationForm()">Send a request</button>
-                </div>
-            </div>
-        </div>
-        <div class="tutor-container">
-
-        </div>
-        <div class="tutor-container">
-
-        </div>
-        <div class="tutor-container">
-
-        </div>
-        <div class="pagination">
-            <ul class="ul">
-                <!-- <li class="btn prev"><span><i class="fas fa-angle-left"></i> Prev</span></li>
-                <li class="numb active"><span>1</span></li>
-                <li class="numb"><span>2</span></li>
-                <li class="dots"><span>...</span></li>
-                <li class="numb"><span>4</span></li>
-                <li class="numb"><span>5</span></li>
-                <li class="dots"><span>...</span></li>
-                <li class="numb"><span>7</span></li>
-                <li class="btn next"><span>Next <i class="fas fa-angle-right"></i></span></li> -->
-            </ul>
-        </div>
-        <div class="popup-overlay" id="popup-overlay-login"></div>
-        <div class="popup-login">
-            <div class="popup-close" id="login-close" onclick="closeLoginForm()">&times;</div>
-            <form action="/api/auth/signin" class="form" method="post">
-                <h1>Sign in</h1>
-                <div class="element">
-                    <label for="email">Email</label>
-                    <input type="text" id="email" name="email">
-                </div>
-                <div class="element">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password">
-                </div>
-                <div class="forgot-pass"><a href="#">Forgot Password?</a></div>
-                <div class="element">
-                    <button type="submit" id="btn-signin">Sign-in</button>
-                </div>
-                <div class="signup-link"><a id="signup-link" onclick="signUpLinkFunction()">Not a member? Sign-up now</a></div>
-            </form>
-        </div>
-
-        <div class="popup-overlay" id="popup-overlay-registration"></div>
-        <div class="popup-registration">
-            <div class="popup-close" id="registration-close" onclick="closeRegistrationForm()">&times;</div>
-            <form action="/api/auth/signup" class="form" method="post" id="signup-form">
-                <h1>Sign up</h1>
-                <div class="element-name">
-                    <div class="fname">
-                        <label for="text">First Name</label>
-                        <input type="text" id="signup-firstName" name="firstName">
+                <div class="tutor-inner-container">
+                    <div class="tutor-info">
+                        <span>Name: </span>
+                        <span>From: </span>
+                        <span>Subjects: </span>
+                        <span>Price: </span>
+                        <span>Ratings: </span>
                     </div>
-                    <div class="name-center"></div>
-                    <div class="lname">
-                        <label for="text">Last Name</label>
-                        <input type="text" id="signup-lastName" name="lastName">
+                    <div class="tutor-intro">
+                        <span>I will teach you programming!</span>
+                    </div>
+                    <div class="tutor-send-request">
+                        <button onclick="openLoginForm()">Send a request</button>
                     </div>
                 </div>
-                <div class="element">
-                    <label for="email">Email</label>
-                    <input type="text" id="signup-email" name="email">
+            </div>
+            <div class="tutor-container">
+                <div class="tutor-img">
+                    <img src="img/profile.jpg" />
                 </div>
-                <div class="element">
-                    <label for="password">Password</label>
-                    <input type="password" id="signup-password" name="password">
+                <div class="tutor-inner-container">
+                    <div class="tutor-info">
+                        <span>Name: </span>
+                        <span>From: </span>
+                        <span>Subjects: </span>
+                        <span>Price: </span>
+                        <span>Ratings: </span>
+                    </div>
+                    <div class="tutor-intro">
+                        <span>I will teach you programming!</span>
+                    </div>
+                    <div class="tutor-send-request">
+                        <button onclick="openRequestForm()">Send a request</button>
+                    </div>
                 </div>
-                <div class="element">
-                    <label for="password">Repeat Password</label>
-                    <input type="password" id="password">
+            </div>
+            <div class="tutor-container">
+                <div class="tutor-img">
+                    <img src="img/profile.jpg" />
                 </div>
-                <div class="element">
-                    <button type="button" id="btn-signup" onclick="signup()">Sign-up</button>
+                <div class="tutor-inner-container">
+                    <div class="tutor-info">
+                        <span>Name: </span>
+                        <span>From: </span>
+                        <span>Subjects: </span>
+                        <span>Price: </span>
+                        <span>Ratings: </span>
+                    </div>
+                    <div class="tutor-intro">
+                        <span>I will teach you programming!</span>
+                    </div>
+                    <div class="tutor-send-request">
+                        <button onclick="openRegistrationForm()">Send a request</button>
+                    </div>
                 </div>
-                <div class="signin-link"><a id="signin-link" onclick="signInLinkFunction()">Already a member? Sign-in now</a></div>
-            </form>
-        </div>
+            </div>
+            <div class="tutor-container">
 
-        <div class="popup-overlay" id="popup-overlay-request"></div>
-        <div class="popup-request">
-            <div class="popup-close" id="request-close" onclick="closeRequestForm()">&times;</div>
-            <div class="form">
-                <h1>Send a request to this tutor</h1>
-                <div class="element">
-                    <textarea type="text" id="request"></textarea>
-                </div>
-                <div class="element">
-                    <button>Send</button>
+            </div>
+            <div class="tutor-container">
+
+            </div>
+            <div class="tutor-container">
+
+            </div>
+            <div class="pagination">
+                <ul class="ul">
+                    <!-- <li class="btn prev"><span><i class="fas fa-angle-left"></i> Prev</span></li>
+                    <li class="numb active"><span>1</span></li>
+                    <li class="numb"><span>2</span></li>
+                    <li class="dots"><span>...</span></li>
+                    <li class="numb"><span>4</span></li>
+                    <li class="numb"><span>5</span></li>
+                    <li class="dots"><span>...</span></li>
+                    <li class="numb"><span>7</span></li>
+                    <li class="btn next"><span>Next <i class="fas fa-angle-right"></i></span></li> -->
+                </ul>
+            </div>
+            <div class="popup-overlay" id="popup-overlay-login"></div>
+            <div class="popup-login">
+                <div class="popup-close" id="login-close" onclick="closeLoginForm()">&times;</div>
+                <form action="/api/auth/signin" class="form" method="post">
+                    <h1>Sign in</h1>
+                    <div class="element">
+                        <label for="email">Email</label>
+                        <input type="text" id="signin-email" name="email">
+                    </div>
+                    <div class="element">
+                        <label for="password">Password</label>
+                        <input type="password" id="signin-password" name="password">
+                    </div>
+                    <div class="forgot-pass"><a href="#">Forgot Password?</a></div>
+                    <div class="element">
+                        <button type="button" id="btn-signin">Sign-in</button>
+                    </div>
+                    <div class="signup-link"><a id="signup-link" onclick="signUpLinkFunction()">Not a member? Sign-up now</a></div>
+                </form>
+            </div>
+
+            <div class="popup-overlay" id="popup-overlay-registration"></div>
+            <div class="popup-registration">
+                <div class="popup-close" id="registration-close" onclick="closeRegistrationForm()">&times;</div>
+                <form action="/api/auth/signup" class="form" method="post" id="signup-form">
+                    <h1>Sign up</h1>
+                    <div class="element-name">
+                        <div class="fname">
+                            <label for="text">First Name</label>
+                            <input type="text" id="signup-firstName" name="firstName">
+                        </div>
+                        <div class="name-center"></div>
+                        <div class="lname">
+                            <label for="text">Last Name</label>
+                            <input type="text" id="signup-lastName" name="lastName">
+                        </div>
+                    </div>
+                    <div class="element">
+                        <label for="email">Email</label>
+                        <input type="text" id="signup-email" name="email">
+                    </div>
+                    <div class="element">
+                        <label for="password">Password</label>
+                        <input type="password" id="signup-password" name="password">
+                    </div>
+                    <div class="element">
+                        <label for="password">Repeat Password</label>
+                        <input type="password" id="password">
+                    </div>
+                    <div class="element">
+                        <button type="button" id="btn-signup">Sign-up</button>
+                    </div>
+                    <div class="signin-link"><a id="signin-link" onclick="signInLinkFunction()">Already a member? Sign-in now</a></div>
+                </form>
+            </div>
+
+            <div class="popup-overlay" id="popup-overlay-request"></div>
+            <div class="popup-request">
+                <div class="popup-close" id="request-close" onclick="closeRequestForm()">&times;</div>
+                <div class="form">
+                    <h1>Send a request to this tutor</h1>
+                    <div class="element">
+                        <textarea type="text" id="request"></textarea>
+                    </div>
+                    <div class="element">
+                        <button>Send</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="js/result.js"></script>
-    <script src="js/signinAndSignup.js"></script>
-</body>
+        <script src="js/result.js"></script>
+        <script src="js/signinAndSignup.js"></script>
+    </body>
 </html>

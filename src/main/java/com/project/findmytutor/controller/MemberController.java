@@ -31,10 +31,5 @@ public class MemberController {
     public ResponseEntity<MemberResponse> getMemberInfo (@PathVariable String email) {
         return ResponseEntity.ok(memberService.getMemberInfo(email));
     }
-
-    @GetMapping("/curr-member")
-    public ResponseEntity<MemberResponse> getCurrMemberInfo (@PathVariable String email) {
-        return ResponseEntity.ok(memberService.getCurrMemberInfo(email));
-    }
-
+    
 }
