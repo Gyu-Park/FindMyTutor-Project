@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,16 +15,14 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Member {
 
-    public Member(String firstName, String lastName, String email, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Member(String email, String password, String name) {
         this.email = email;
         this.password = password;
+        this.name = name;
     }
 
     @Id
@@ -33,16 +30,13 @@ public class Member {
     private Long memberId;
 
     @Column
-    private String firstName;
-
-    @Column
-    private String lastName;
-
-    @Column
     private String email;
 
     @Column
     private String password;
+
+    @Column
+    private String name;
 
     @Column(nullable = true)
     private String phone;

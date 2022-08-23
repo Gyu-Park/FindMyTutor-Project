@@ -27,7 +27,7 @@ public class SignupRequest {
     private String password;
 
     public Member toMember(PasswordEncoder passwordEncoder) {
-        Member member = new Member(email, passwordEncoder.encode(password), firstName, lastName);
+        Member member = new Member(email, passwordEncoder.encode(password), firstName + " " + lastName);
         return member;
     }
     

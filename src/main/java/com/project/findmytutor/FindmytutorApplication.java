@@ -24,7 +24,7 @@ public class FindmytutorApplication {
 	@Bean
 	ApplicationRunner applicationRunner(MemberRepository memberRepository) {
 		return args -> {
-			memberRepository.save(new Member(null, "gp2693@gmail.com", passwordEncoder.encode("1234"), "Gyuseok", "Park", "0123456789", "New York", "Tutor"));
+			memberRepository.save(new Member(null, "gp2693@gmail.com", passwordEncoder.encode("1234"), "Gyuseok Park", "0123456789", "New York", "Tutor"));
 		};
 	}
 }

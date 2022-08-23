@@ -17,11 +17,10 @@ public class MemberResponse {
 
     private Long memberId;
     private String email;
-    private String firstName;
-    private String lastName;
+    private String name;
 
     public static MemberResponse of(final Member member) {
-        return new MemberResponse(member.getMemberId(), member.getEmail(), member.getFirstName(), member.getLastName());
+        return new MemberResponse(member.getMemberId(), member.getEmail(), member.getName());
     }
 
 }
