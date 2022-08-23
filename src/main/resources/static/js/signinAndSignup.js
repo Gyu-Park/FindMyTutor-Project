@@ -42,6 +42,7 @@ $("#btn-signin").on('click', function(e) {
            {
                 alert("signin");
                 closeLoginForm();
+                window.location.reload();
            },
            error: function(data) {
                alert(data);

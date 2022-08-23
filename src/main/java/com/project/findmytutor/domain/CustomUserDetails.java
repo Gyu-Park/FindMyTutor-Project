@@ -1,4 +1,4 @@
-package com.project.findmytutor.model;
+package com.project.findmytutor.domain;
 
 import java.util.Collection;
 

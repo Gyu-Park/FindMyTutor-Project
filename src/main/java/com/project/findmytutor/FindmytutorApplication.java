@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.project.findmytutor.model.Member;
+import com.project.findmytutor.domain.Member;
 import com.project.findmytutor.repository.MemberRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class FindmytutorApplication {
 	@Bean
 	ApplicationRunner applicationRunner(MemberRepository memberRepository) {
 		return args -> {
-			memberRepository.save(new Member(null, "gp2693@gmail.com", passwordEncoder.encode("1234"), "Gyuseok Park", "0123456789", "New York", "Tutor"));
+			memberRepository.save(new Member(null, "gp2693@gmail.com", passwordEncoder.encode("1234"), "Gyuseok", "Park", "0123456789", "New York", "Tutor"));
 		};
 	}
 }

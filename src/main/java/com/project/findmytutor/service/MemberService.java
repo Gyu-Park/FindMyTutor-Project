@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.project.findmytutor.repository.MemberRepository;
+import com.project.findmytutor.domain.Member;
 import com.project.findmytutor.dto.response.MemberResponse;
-import com.project.findmytutor.model.Member;
 
 @Service
 @Transactional

@@ -1,5 +1,6 @@
 package com.project.findmytutor.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -23,8 +24,8 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/signin")
-    public ResponseEntity<SigninRequest> signin (@RequestBody @Valid final SigninRequest signinRequest) {
-        return ResponseEntity.ok(authService.signin(signinRequest));
+    public ResponseEntity<SigninRequest> signin (@RequestBody @Valid final SigninRequest signinRequest, HttpSession httpSession) {
+        return ResponseEntity.ok(authService.signin(signinRequest, httpSession));
     }
 
     @PostMapping("/signup")

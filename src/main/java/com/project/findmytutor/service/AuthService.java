@@ -1,17 +1,19 @@
 package com.project.findmytutor.service;
 
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.project.findmytutor.domain.Member;
 import com.project.findmytutor.dto.request.SigninRequest;
 import com.project.findmytutor.dto.request.SignupRequest;
 import com.project.findmytutor.dto.response.MemberResponse;
-import com.project.findmytutor.model.Member;
 import com.project.findmytutor.repository.MemberRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -35,7 +37,7 @@ public class AuthService {
     }
 
     @Transactional
-    public SigninRequest signin(SigninRequest signinRequest) {
+    public SigninRequest signin(SigninRequest signinRequest, HttpSession httpSession) {
         // 1. Generate Authentication Token based on signin ID and PW
         UsernamePasswordAuthenticationToken authenticationToken = signinRequest.toAuthentication();
 
@@ -46,6 +48,9 @@ public class AuthService {
         if (!authentication.isAuthenticated()) {
             return null;
         }
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        httpSession.setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext());
 
         return signinRequest;
     }

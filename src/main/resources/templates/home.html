@@ -11,18 +11,10 @@
         <link rel="stylesheet" href="css/nav.css">
         <link rel="stylesheet" href="css/home.css">
         <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-        <script>
-            hamburger = document.querySelector(".hamburger");
-            hamburger.onclick = function() {
-                navBar = document.querySelector(".nav-bar");
-                navBar.classList.toggle("active");
-            }
-        </script>
-        <script src="js/home.js"></script>
     </head>
     <body>
         <header>
-            <div class="logo">FindMyTutor</div>
+            <div class="logo"><a th:href="@{/}" class="active">Find My Tutor</a></div>
             <div class="hamburger">
                 <div class="line"></div>
                 <div class="line"></div>
@@ -31,15 +23,13 @@
             <nav class="nav-bar">
                 <ul>
                     <li>
-                        <a href="" class="active">Find My Tutor</a>
+                        <a th:href="@{/}" class="active">Find My Tutor</a>
                     </li>
-                    <li>
-                        <div sec:authorize="!isAuthenticated()" style="display: inline-block">
-                            <a href="" >Sign in</a>
-                        </div>
-                        <div sec:authorize="isAuthenticated()" style="display: inline-block">
-                            <a href="">Sign out</a>
-                        </div>
+                    <li style="display: inline-block">
+                        <a href="" sec:authorize="!isAuthenticated()">Sign in</a>
+                        <form id="signout" th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+                            <a href="javascript:;" onclick="document.getElementById('signout').submit();">Sign out</a>
+                        </form>
                     </li>
                     <li>
                         <a href="">Account</a>
@@ -110,5 +100,13 @@
                 </form>
             </div>
         </div>
+        <script>
+            hamburger = document.querySelector(".hamburger");
+            hamburger.onclick = function() {
+                navBar = document.querySelector(".nav-bar");
+                navBar.classList.toggle("active");
+            }
+        </script>
+        <script src="js/home.js"></script>
     </body>
 </html>

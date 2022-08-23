@@ -4,7 +4,7 @@ import javax.validation.constraints.Email;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.project.findmytutor.model.Member;
+import com.project.findmytutor.domain.Member;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,7 +27,7 @@ public class SignupRequest {
     private String password;
 
     public Member toMember(PasswordEncoder passwordEncoder) {
-        Member member = new Member(email, passwordEncoder.encode(password), firstName + " " + lastName);
+        Member member = new Member(email, passwordEncoder.encode(password), firstName, lastName);
         return member;
     }
     

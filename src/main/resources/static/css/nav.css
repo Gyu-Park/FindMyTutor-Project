@@ -27,6 +27,11 @@ header {
     font-weight: bold;
     color: #fefefe;
 }
+.logo a,
+.logo a.active {
+    text-decoration: none;
+    color: #fefefe;
+}
 .hamburger {
     display: none;
 }

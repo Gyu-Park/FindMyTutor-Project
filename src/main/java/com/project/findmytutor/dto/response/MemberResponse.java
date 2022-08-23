@@ -2,7 +2,7 @@ package com.project.findmytutor.dto.response;
 
 import lombok.Getter;
 
-import com.project.findmytutor.model.Member;
+import com.project.findmytutor.domain.Member;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -17,10 +17,11 @@ public class MemberResponse {
 
     private Long memberId;
     private String email;
-    private String name;
+    private String firstName;
+    private String lastName;
 
     public static MemberResponse of(final Member member) {
-        return new MemberResponse(member.getMemberId(), member.getEmail(), member.getName());
+        return new MemberResponse(member.getMemberId(), member.getEmail(), member.getFirstName(), member.getLastName());
     }
 
 }

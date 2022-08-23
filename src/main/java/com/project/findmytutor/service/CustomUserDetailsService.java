@@ -8,8 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.project.findmytutor.model.CustomUserDetails;
-import com.project.findmytutor.model.Member;
+import com.project.findmytutor.domain.CustomUserDetails;
+import com.project.findmytutor.domain.Member;
 import com.project.findmytutor.repository.MemberRepository;
 
 @Service
