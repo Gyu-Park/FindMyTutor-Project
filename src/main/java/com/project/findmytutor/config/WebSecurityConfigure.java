@@ -11,7 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.project.findmytutor.model.CustomUserDetails;
+import com.project.findmytutor.domain.CustomUserDetails;
 import com.project.findmytutor.service.CustomUserDetailsService;
 
 @EnableWebSecurity
@@ -62,19 +62,13 @@ public class WebSecurityConfigure {
         // requests handling
         .authenticationProvider(authenticationProvider())
         .authorizeRequests()
-        .antMatchers("/", "/home").authenticated()
+        // .antMatchers("/", "/home").authenticated()
         .anyRequest().permitAll()
 
         .and()
-        .formLogin()
-            .usernameParameter("email")
-            .passwordParameter("password")
-            .defaultSuccessUrl("/result")
-            .permitAll()
-        .and()
         .logout()
             .permitAll()
-            .logoutSuccessUrl("/result");
+            .logoutSuccessHandler(new CustomLogoutSuccessHandler());
 
         return http.build();
     }
