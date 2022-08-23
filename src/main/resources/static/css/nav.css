@@ -46,6 +46,7 @@ header {
     border-radius: 50px;
     transition: 0.2s;
     margin: 0 5px;
+    cursor: pointer;
 }
 .nav-bar ul li a:hover {
     color: #4169e1;

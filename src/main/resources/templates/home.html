@@ -10,6 +10,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/nav.css">
         <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="css/popup.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -26,7 +28,7 @@
                         <a th:href="@{/}" class="active">Find My Tutor</a>
                     </li>
                     <li style="display: inline-block">
-                        <a href="" sec:authorize="!isAuthenticated()">Sign in</a>
+                        <a sec:authorize="!isAuthenticated()" onclick="openLoginForm()">Sign in</a>
                         <form id="signout" th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
                             <a href="javascript:;" onclick="document.getElementById('signout').submit();">Sign out</a>
                         </form>
@@ -99,6 +101,63 @@
                     </div>
                 </form>
             </div>
+
+            <div class="popup-overlay" id="popup-overlay-login"></div>
+            <div class="popup-login">
+                <div class="popup-close" id="login-close" onclick="closeLoginForm()">&times;</div>
+                <form action="/api/auth/signin" class="form" method="post">
+                    <h1>Sign in</h1>
+                    <div class="element">
+                        <label for="email">Email</label>
+                        <input type="text" id="signin-email" name="email">
+                    </div>
+                    <div class="element">
+                        <label for="password">Password</label>
+                        <input type="password" id="signin-password" name="password">
+                    </div>
+                    <div class="forgot-pass"><a href="#">Forgot Password?</a></div>
+                    <div class="element">
+                        <button type="button" id="btn-signin">Sign-in</button>
+                    </div>
+                    <div class="signup-link"><a id="signup-link" onclick="signUpLinkFunction()">Not a member? Sign-up now</a></div>
+                </form>
+            </div>
+
+            <div class="popup-overlay" id="popup-overlay-registration"></div>
+            <div class="popup-registration">
+                <div class="popup-close" id="registration-close" onclick="closeRegistrationForm()">&times;</div>
+                <form action="/api/auth/signup" class="form" method="post" id="signup-form">
+                    <h1>Sign up</h1>
+                    <div class="element-name">
+                        <div class="fname">
+                            <label for="text">First Name</label>
+                            <input type="text" id="signup-firstName" name="firstName">
+                        </div>
+                        <div class="name-center"></div>
+                        <div class="lname">
+                            <label for="text">Last Name</label>
+                            <input type="text" id="signup-lastName" name="lastName">
+                        </div>
+                    </div>
+                    <div class="element">
+                        <label for="email">Email</label>
+                        <input type="text" id="signup-email" name="email">
+                    </div>
+                    <div class="element">
+                        <label for="password">Password</label>
+                        <input type="password" id="signup-password" name="password">
+                    </div>
+                    <div class="element">
+                        <label for="password">Repeat Password</label>
+                        <input type="password" id="password">
+                    </div>
+                    <div class="element">
+                        <button type="button" id="btn-signup">Sign-up</button>
+                    </div>
+                    <div class="signin-link"><a id="signin-link" onclick="signInLinkFunction()">Already a member? Sign-in now</a></div>
+                </form>
+            </div>
+
         </div>
         <script>
             hamburger = document.querySelector(".hamburger");
@@ -108,5 +167,6 @@
             }
         </script>
         <script src="js/home.js"></script>
+        <script src="js/signinAndSignup.js"></script>
     </body>
 </html>

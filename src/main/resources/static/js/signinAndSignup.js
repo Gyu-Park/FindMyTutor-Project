@@ -50,3 +50,37 @@ $("#btn-signin").on('click', function(e) {
            }
          });
 });
+
+// login form
+function openLoginForm() {
+    document.body.classList.add("showLoginForm");
+}
+function closeLoginForm() {
+    document.body.classList.remove("showLoginForm");
+}
+
+// registration form
+function openRegistrationForm() {
+    document.body.classList.add("showRegistrationForm");
+}
+function closeRegistrationForm() {
+    document.body.classList.remove("showRegistrationForm");
+}
+
+// request form
+function openRequestForm() {
+    document.body.classList.add("showRequestForm");
+}
+function closeRequestForm() {
+    document.body.classList.remove("showRequestForm");
+}
+
+function signUpLinkFunction() {
+    document.body.classList.remove("showLoginForm");
+    document.body.classList.add("showRegistrationForm");
+}
+
+function signInLinkFunction() {
+    document.body.classList.remove("showRegistrationForm");
+    document.body.classList.add("showLoginForm");
+}

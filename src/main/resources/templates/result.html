@@ -9,6 +9,7 @@
         <title>Search Result</title>
         <link rel="stylesheet" href="css/nav.css">
         <link rel="stylesheet" href="css/result.css">
+        <link rel="stylesheet" href="css/popup.css">
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     </head>
     <body>
@@ -25,7 +26,7 @@
                         <a th:href="@{/}" class="active">Find My Tutor</a>
                     </li>
                     <li style="display: inline-block">
-                        <a href="" sec:authorize="!isAuthenticated()">Sign in</a>
+                        <a sec:authorize="!isAuthenticated()" onclick="openLoginForm()">Sign in</a>
                         <form id="signout" th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
                             <a href="javascript:;" onclick="document.getElementById('signout').submit();">Sign out</a>
                         </form>
