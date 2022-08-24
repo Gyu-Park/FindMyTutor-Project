@@ -208,3 +208,7 @@ input[type="password"]:focus {
   border: 2px solid #4169e1;
   transition: 0.3s;
 }
+
+.tutorRequest-btn {
+    width: 100%;
+}
