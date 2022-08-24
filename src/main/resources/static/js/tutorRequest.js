@@ -5,7 +5,7 @@ $("#btn-post").on('click', function(e) {
     var method = document.querySelector('.method:checked').value;
     var subject = document.querySelector('.subject:checked').value;
     
-    var lessonRequest = {
+    var lessonPostRequest = {
                     method: method,
                     subject: subject,
                     price: $("#post-price").val(),
@@ -15,7 +15,7 @@ $("#btn-post").on('click', function(e) {
     $.ajax({
            type: "POST",
            url: "/api/lesson/post",
-           data: JSON.stringify(lessonRequest),
+           data: JSON.stringify(lessonPostRequest),
            contentType : "application/json; charset=utf-8",
            success: function(data)
            {
