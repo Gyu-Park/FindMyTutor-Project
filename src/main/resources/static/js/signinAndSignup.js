@@ -81,6 +81,7 @@ function closeRequestForm() {
     document.body.classList.remove("showRequestForm");
 }
 
+// signin and signup links
 function signUpLinkFunction() {
     document.body.classList.remove("showLoginForm");
     document.body.classList.add("showRegistrationForm");
