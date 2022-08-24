@@ -15,13 +15,13 @@ import lombok.ToString;
 @ToString
 public class MemberResponse {
 
-    private Long memberId;
+    private Long id;
     private String email;
     private String name;
     private String role;
 
     public static MemberResponse of(final Member member) {
-        return new MemberResponse(member.getMemberId(), member.getEmail(), member.getName(), member.getRole());
+        return new MemberResponse(member.getId(), member.getEmail(), member.getName(), member.getRole());
     }
 
 }
