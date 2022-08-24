@@ -15,6 +15,13 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Lesson {
+
+    public Lesson(String method, String subject, String price, Member member) {
+        this.method = method;
+        this.subject = subject;
+        this.price = price;
+        this.member = member;
+    }
     
     @Id
     @GeneratedValue
@@ -29,7 +36,7 @@ public class Lesson {
     @Column
     private String price;
 
-    @Column
+    @Column(nullable = true)
     private String rating;
 
     @OneToOne

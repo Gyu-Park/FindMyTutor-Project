@@ -2,6 +2,7 @@ package com.project.findmytutor.dto.request;
 
 import javax.validation.constraints.NotBlank;
 
+import com.project.findmytutor.domain.Lesson;
 import com.project.findmytutor.domain.Member;
 
 import lombok.AllArgsConstructor;
@@ -26,5 +27,9 @@ public class LessonRequest {
 
     @NotBlank(message = "This member does not exist.")
     private Member member;
+
+    public Lesson toLesson() {
+        return new Lesson(method, subject, price, member);
+    }
 
 }
