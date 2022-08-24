@@ -1,5 +1,5 @@
 // sign-up
-$("#btn-signup").on('click', function(e) {
+$("#btn-post").on('click', function(e) {
     e.preventDefault();
     var role;
     if (document.getElementById("role-tutor").checked)
