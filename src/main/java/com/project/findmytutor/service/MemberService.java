@@ -1,8 +1,7 @@
 package com.project.findmytutor.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,11 +16,8 @@ public class MemberService {
     @Autowired
     private MemberRepository memberRepository;
     
-    public List<Member> findByRole(String role) {
-
-        // code needed here
-
-        return memberRepository.findAll();
+    public Member findByEmail(String email) {
+        return memberRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("There's no such member."));
     }
 
     public MemberResponse getMemberInfo(String email) {
