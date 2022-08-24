@@ -25,7 +25,7 @@ public class Lesson {
     
     @Id
     @GeneratedValue
-    private Long lessonId;
+    private Long id;
 
     @Column
     private String method;
