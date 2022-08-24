@@ -63,41 +63,38 @@
                 </div>
             </div>
             <div class="form-outer">
-                <form action="#">
+                <form action="/api/lesson/search" method="post">
                     <div class="page slidepage">
-                        <button class="w-btn1 w-btn-blue nextBtn" type="button">
+                        <button class="w-btn1 w-btn-blue nextBtn" type="button" value="inperson" onclick="getMethod(this)">
                             In-person
                         </button>
-                        <button class="w-btn1 w-btn-blue nextBtn" type="button">
+                        <button class="w-btn1 w-btn-blue nextBtn" type="button" value="online" onclick="getMethod(this)">
                             Online
                         </button>
-                        <input id="method" type="hidden" name="method" value="">
                     </div>
 
                     <div class="page">
-                        <button class="w-btn2 w-btn-blue nextBtn" type="button">
+                        <button class="w-btn2 w-btn-blue nextBtn" type="button" value="programming" onclick="getSubject(this)">
                             Programming
                         </button>
-                        <button class="w-btn2 w-btn-blue nextBtn" type="button">
+                        <button class="w-btn2 w-btn-blue nextBtn" type="button" value="math" onclick="getSubject(this)">
                             Math
                         </button>
-                        <button class="w-btn2 w-btn-blue nextBtn" type="button">
+                        <button class="w-btn2 w-btn-blue nextBtn" type="button" value="english" onclick="getSubject(this)">
                             English
                         </button>
-                        <input id="subject" type="hidden" name="subject" value="">
                     </div>
 
                     <div class="page">
-                        <button class="w-btn2 w-btn-blue submitBtn" type="button">
+                        <button class="w-btn2 w-btn-blue submitBtn" type="button" value="40" onclick="getPrice(this)">
                             $40 - $50
                         </button>
-                        <button class="w-btn2 w-btn-blue submitBtn" type="button">
+                        <button class="w-btn2 w-btn-blue submitBtn" type="button" value="50" onclick="getPrice(this)">
                             $50 - $60
                         </button>
-                        <button class="w-btn2 w-btn-blue submitBtn" type="button">
+                        <button class="w-btn2 w-btn-blue submitBtn" type="button" value="60" onclick="getPrice(this)">
                             $60 - $70
                         </button>
-                        <input id="price" type="hidden" name="price" value="">
                     </div>
                 </form>
             </div>
@@ -180,5 +177,6 @@
         </script>
         <script src="js/home.js"></script>
         <script src="js/signinAndSignup.js"></script>
+        <script src="js/lesson.js" defer></script>
     </body>
 </html>
