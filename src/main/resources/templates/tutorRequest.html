@@ -43,7 +43,76 @@
 
         <!-- boby -->
         <div class="body-container">
+            <div class="tutoring-service">
+                <button class="post-tutoring-service" type="button" onclick="openPostForm()">Register a tutoring service</button>
+            </div>
+            <div class="tutor-wrapper">
+                <div class="tutor-container">
+                    <div class="tutor-img">
+                        <img src="../img/profile.jpg" />
+                    </div>
+                    <div class="tutor-inner-container">
+                        <div class="tutor-info">
+                            <span>Name: </span>
+                            <span>From: </span>
+                            <span>Subjects: </span>
+                            <span>Price: </span>
+                            <span>Ratings: </span>
+                        </div>
+                        <div class="tutor-intro">
+                            <span>I will teach you programming!</span>
+                        </div>
+                        <div class="tutor-edit">
+                            <button onclick="">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- post service popup -->
+        <div class="popup-overlay" id="popup-overlay-post"></div>
+        <div class="popup-post">
+            <div class="popup-close" id="post-close" onclick="closePostForm()">&times;</div>
+            <form action="" class="form" method="post" id="post-form">
+                <h1>Post your tuoring service</h1>
+                <div class="element-method">
+                    <input type="radio" name="method" id="method-online" value="online" checked>
+                    <input type="radio" name="method" id="method-inperson" value="inperson">
+                    <label for="method-online" class="option method-online">
+                        <div class="dot"></div>
+                        <span>Online</span>
+                    </label>
+                    <label for="method-inperson" class="option method-inperson">
+                        <div class="dot"></div>
+                        <span>In-person</span>
+                    </label>
+                </div>
+                <div class="element-subject">
+                    <input type="radio" name="subject" id="subject-prog" value="online" checked>
+                    <input type="radio" name="subject" id="subject-math" value="inperson">
+                    <input type="radio" name="subject" id="subject-eng" value="online">
+                    <label for="subject-prog" class="option subject-prog">
+                        <div class="dot"></div>
+                        <span>Programming</span>
+                    </label>
+                    <label for="subject-math" class="option subject-math">
+                        <div class="dot"></div>
+                        <span>Math</span>
+                    </label>
+                    <label for="subject-eng" class="option subject-eng">
+                        <div class="dot"></div>
+                        <span>English</span>
+                    </label>
+                </div>
+                <div class="element">
+                    <label for="price">Price</label>
+                    <input type="number" id="post-price" name="price" placeholder="ex: 40 (from $40 to $70 per hour)" min="40" max="70">
+                </div>
+                <div class="element">
+                    <button type="button" id="btn-post">Post</button>
+                </div>
+            </form>
         </div>
 
         <!-- signin and signup popups -->
@@ -123,5 +192,6 @@
             }
         </script>
         <script src="../js/signinAndSignup.js"></script>
+        <script src="../js/tutorRequestjs"></script>
     </body>
 </html>
