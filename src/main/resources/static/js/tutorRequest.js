@@ -1,29 +1,25 @@
 // sign-up
 $("#btn-post").on('click', function(e) {
     e.preventDefault();
-    var role;
-    if (document.getElementById("role-tutor").checked)
-        role = document.getElementById("role-tutor").value;
-    else
-        role = document.getElementById("role-student").value;
-    var signupRequest = {
-                    role: role,
-                    firstName: $("#signup-firstName").val(),
-                    lastName: $("#signup-lastName").val(),
-                    email: $("#signup-email").val(),
-                    password: $("#signup-password").val()
+
+    var method = document.querySelector('.method:checked').value;
+    var subject = document.querySelector('.subject:checked').value;
+    
+    var lessonRequest = {
+                    method: method,
+                    subject: subject,
+                    price: $("#post-price").val()
                 };
 
     $.ajax({
            type: "POST",
            url: "/api/auth/signup",
-           data: JSON.stringify(signupRequest),
+           data: JSON.stringify(lessonRequest),
            contentType : "application/json; charset=utf-8",
            success: function(data)
            {
-                alert("Now you're a member!");
-                closeRegistrationForm();
-                openLoginForm();
+                alert("Successfully posted!");
+                closePostForm();
            },
            error: function(data) {
                alert(data);
