@@ -18,9 +18,10 @@ public class MemberResponse {
     private Long memberId;
     private String email;
     private String name;
+    private String role;
 
     public static MemberResponse of(final Member member) {
-        return new MemberResponse(member.getMemberId(), member.getEmail(), member.getName());
+        return new MemberResponse(member.getMemberId(), member.getEmail(), member.getName(), member.getRole());
     }
 
 }
