@@ -25,7 +25,7 @@
             <nav class="nav-bar">
                 <ul>
                     <li>
-                        <a th:href="@{/}" class="active">Find My Tutor</a>
+                        <a th:href="@{/}">Find My Tutor</a>
                     </li>
                     <li style="display: inline-block">
                         <a sec:authorize="!isAuthenticated()" onclick="openLoginForm()">Sign in</a>
@@ -34,11 +34,169 @@
                         </form>
                     </li>
                     <li>
-                        <a href="">Account</a>
+                        <a th:href="@{/account}" class="active">Account</a>
                     </li>
                 </ul>
             </nav>
         </header>
+
+        <!-- body -->
+        <div class="body-container">
+            <div class="account-row">
+                <!-- Name Item -->
+                <div class="LaS-item">
+                  <!-- Name Display -->
+                    <div class="account-col-80">
+                        <label for="LaS-name-lbl"> - Name</label>
+                        <lable for="LaS-name-display">
+                            <p>request.userPrincipal.principal.fullname</p>
+                        </lable>
+                    </div>
+                    <div class="account-col-20">
+                        <button type="form-edit" class="account-btn-edit" id="name-edit-btn" onclick="onNameEditButtonClick()">
+                            Edit
+                        </button>
+                    </div>
+      
+                    <!-- Edit Name Form -->
+                    <form class="edit-form" th:action="@{/account/changeName}" method="POST">
+                        <div class="account-col-80">
+                            <div class="form-control-hide" id="edit-name-first">
+                                <p class="hide" id="edit-name-label">Enter the new Name</p>
+                                <input class="edit-name-first" type="text" name="firstName" placeholder="First Name" />
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                                <small>Error message</small>
+                            </div>
+                            <div class="form-control-hide" id="edit-name-last">
+                                <input class="edit-name-last" type="text" name="lastName" placeholder="Last Name" />
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                                <small>Error message</small>
+                            </div>
+                        </div>
+                        <div class="account-col-20">
+                            <button class="hide" id="edit-name-button" type="form-edit" onclick="return checkNameInputs()" >
+                                Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+      
+                <!-- Email Item -->
+                <div class="LaS-item">
+                    <!-- Email Display -->
+                    <div class="account-col-80">
+                        <label for="LaS-email-lbl"> - Email</label>
+                        <lable for="LaS-email-display">
+                            <p>request.userPrincipal.principal.username</p>
+                        </lable>
+                    </div>
+                    <div class="account-col-20">
+                        <button type="form-edit" class="account-btn-edit" id="email-edit-btn" onclick="onEmailEditButtonClick()" >
+                            Edit
+                        </button>
+                    </div>
+      
+                  <!-- Edit Email Form -->
+                    <form class="edit-form" th:action="@{/account/changeEmail}" method="POST" >
+                        <div class="account-col-80">
+                            <div class="form-control-hide" id="edit-email">
+                                <p class="hide" id="edit-email-label">Enter the new Email</p>
+                                <input class="edit-email" type="text" name="email" placeholder="johndoe@example.com" />
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                                <small>Error message</small>
+                            </div>
+                        </div>
+                        <div class="account-col-20">
+                            <button class="form-control-hide" id="edit-email-button" type="form-edit" onclick="return checkEmailInputs()">
+                                Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+        
+                <!-- Phone Edit -->
+                <div class="LaS-item">
+                    <!-- Phone Display -->
+                    <div class="account-col-80">
+                        <label for="LaS-phone-lbl"> - Phone</label>
+                        <lable for="LaS-phone-display">
+                            <p> <!-- th:if="${user.userInfo.phone != null}" -->
+                                user.userInfo.phone
+                            </p>
+                        </lable>
+                    </div>
+                    <div class="account-col-20">
+                        <button type="form-edit" class="account-btn-edit" id="phone-edit-btn" onclick="onPhoneEditButtonClick()" >
+                            Edit
+                        </button>
+                    </div>
+      
+                  <!-- Edit Phone Form -->
+                    <form class="edit-form" th:action="@{/account/changePhoneNumber}" method="POST" >
+                        <div class="account-col-80">
+                            <div class="form-control-hide" id="edit-phone">
+                                <p class="edit-phone-label">Enter the new phone number</p>
+                                <input class="edit-phone" type="text" name="phone" placeholder="(123)-456-7890" maxlength="12" />
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                                <small>Error message</small>
+                            </div>
+                        </div>
+                        <div class="account-col-20">
+                            <button class="form-control-hide" id="edit-phone-button" type="form-edit" onclick="return checkPhoneInputs()" > 
+                                Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+      
+                <!-- Password Edit -->
+                <div class="LaS-item">
+                    <!-- Password Display -->
+                    <div class="account-col-80">
+                        <label for="LaS-password-lbl"> - Password</label>
+                        <lable for="LaS-password-display"><p>**********</p></lable>
+                    </div>
+                    <div class="account-col-20">
+                        <button type="form-edit" class="account-btn-edit" id="password-edit-btn" onclick="onPasswordEditButtonClick()" >
+                            Edit
+                        </button>
+                    </div>
+        
+                    <!-- Edit Password Form -->
+                    <form class="edit-form" th:action="@{/account/changePassword}" method="POST">
+                        <div class="account-col-80">
+                            <div class="form-control-hide" id="edit-password">
+                                <p class="hide" id="edit-password-label">
+                                    Enter the new Password
+                                </p>
+                                <input class="edit-password" type="password" name="password" placeholder="Enter your new password" />
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                                <small>Error message</small>
+                            </div>
+                            <div class="form-control-hide" id="edit-repeat-password">
+                                <input class="edit-repeat-password" type="password" placeholder="Re-enter your new password" />
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                                <small>Error message</small>
+                            </div>
+                        </div>
+                        <div class="account-col-20">
+                            <button class="form-control-hide" id="edit-password-button" type="form-edit" onclick="return checkPasswordInputs()">
+                                Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="LaS-item">
+                    <button type="form-edit" class="">Manage Tutoring Request</button>
+                </div>
+            </div>
+        </div>
 
         <!-- signin and signup popups -->
         <div class="popup-overlay" id="popup-overlay-login"></div>
@@ -117,5 +275,6 @@
             }
         </script>
         <script src="js/signinAndSignup.js"></script>
+        <script src="js/account.js"></script>
     </body>
 </html>

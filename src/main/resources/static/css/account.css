@@ -1,0 +1,210 @@
+.body-container {
+    /* text-align: center; */
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    min-height: 72vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7vh;
+    margin-bottom: 10vh;
+    padding: 20px 30px 20px 30px;
+    position: relative;
+    background: #fefefe;
+    border-radius: 30px;
+    box-shadow:0 1px 2px rgba(0,0,0,0.07),0 2px 4px rgba(0,0,0,0.07),0 4px 8px rgba(0,0,0,0.07),0 8px 16px rgba(0,0,0,0.07),0 16px 32px rgba(0,0,0,0.07),0 32px 64px rgba(0,0,0,0.07);
+}
+
+.account-row {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.account-col-80 {
+    flex: 80%;
+}
+
+.account-col-20 {
+    flex: 20%;
+}
+
+/* Form Contents */
+
+.body-container form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.body-container label {
+    width: 100%;
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.LaS-item {
+    box-shadow: rgb(0 0 0 / 19%) 0px 10px 20px, rgb(0 0 0 / 23%) 0px 6px 6px;
+}
+
+/* Account Styles*/
+.LaS-item {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 100%;
+    padding: 10px 20px 15px 20px;
+    margin-bottom: 0.7em;
+    margin-top: 0.7em;
+    border-radius: 50px;
+}
+  
+.LaS-item p {
+    font-weight: bold;
+    font-size: clamp(12px, 2vw, 1em);
+}
+  
+[for="LaS-address-display"] p {
+    margin: 0;
+}
+  
+button[type="form-edit"] {
+    background-color: #4169e1;
+    color: #fefefe;
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+  
+.body-container .edit-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 100%;
+}
+  
+.edit-form .edit-password,
+.edit-form .edit-repeat-password,
+.edit-form .edit-name-first,
+.edit-form .edit-name-last,
+.edit-form .edit-phone,
+.edit-form .edit-email,
+.edit-form .edit-address-street,
+.edit-form .edit-address-apt,
+.edit-form .edit-address-city,
+.edit-form .edit-address-state,
+.edit-form .edit-address-zip {
+    margin-top: 10px;
+    margin-bottom: 3px;
+    width: 50%;
+    padding-right: 0px;
+}
+  
+.edit-form .edit-repeat-password {
+    margin-top: 5px;
+}
+  
+.edit-form #edit-phone-button,
+.edit-form #edit-password-button {
+    padding: 10px;
+}
+  
+.form-control-hide,
+.hide {
+    display: none;
+}
+.form-control-show,
+.show {
+    display: block;
+}
+
+/* Password Validation Styles */
+.LaS-item form i {
+    position: absolute;
+    margin-left: -25px;
+    margin-top: 19px;
+    visibility: hidden;
+}
+  
+#edit-repeat-password i {
+    margin-top: 10px;
+}
+  
+.LaS-item form small {
+    visibility: hidden;
+    font-size: 10px;
+}
+  
+.form-control-show.success input,
+.form-control-hide.success input {
+    border: 2px solid #4169e1;
+    transition: 0.3s;
+}
+  
+.form-control-show.error input,
+.form-control-hide.error input,
+.form-control-show.error input:focus,
+.form-control-hide.error input:focus {
+    border: 2px solid #e74c3c;
+    transition: 0.3s;
+}
+  
+.form-control-show.success i.fa-check-circle,
+.form-control-hide.success i.fa-check-circle {
+    color: #4169e1;
+    visibility: visible;
+}
+  
+.form-control-show.error i.fa-exclamation-circle,
+.form-control-hide.error i.fa-exclamation-circle {
+    color: #e74c3c;
+    visibility: visible;
+}
+  
+.form-control-show.error small,
+.form-control-hide.error small {
+    display: block;
+    color: #e74c3c;
+    visibility: visible;
+}
+
+@media all and (max-width: 500px) {
+    .body-container {
+        width: 95%;
+    }
+  
+    .edit-form .edit-password,
+    .edit-form .edit-repeat-password,
+    .edit-form .edit-name-first,
+    .edit-form .edit-name-last,
+    .edit-form .edit-phone,
+    .edit-form .edit-email,
+    .edit-form .edit-address-street,
+    .edit-form .edit-address-apt,
+    .edit-form .edit-address-city,
+    .edit-form .edit-address-state,
+    .edit-form .edit-address-zip {
+        width: 95%;
+    }
+}
+
+/* edit input */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: none;
+  outline: none;
+  border: 2px solid;
+  border-radius: 50px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border: 2px solid #4169e1;
+  transition: 0.3s;
+}
