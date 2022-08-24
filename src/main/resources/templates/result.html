@@ -44,17 +44,18 @@
                 <button class="edit" type="button"># Programming</button>
                 <button class="edit" type="button"># $60 - $70</button>
             </div>
-            <div class="tutor-container">
+            <div class="tutor-container" th:each="lesson : ${lessons}">
                 <div class="tutor-img">
                     <img src="img/profile.jpg" />
                 </div>
                 <div class="tutor-inner-container">
                     <div class="tutor-info">
-                        <span>Name: </span>
-                        <span>From: </span>
-                        <span>Subjects: </span>
-                        <span>Price: </span>
-                        <span>Ratings: </span>
+                        <span>Name: [[${lesson.member.name}]]</span>
+                        <span>From: [[${lesson.member.location}]]</span>
+                        <span>Method: [[${lesson.method}]]</span>
+                        <span>Subject: [[${lesson.subject}]]</span>
+                        <span>Price: [[${lesson.price}]]</span>
+                        <span>Rating: [[${lesson.rating}]]</span>
                     </div>
                     <div class="tutor-intro">
                         <span>I will teach you programming!</span>
@@ -65,57 +66,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tutor-container">
-                <div class="tutor-img">
-                    <img src="img/profile.jpg" />
-                </div>
-                <div class="tutor-inner-container">
-                    <div class="tutor-info">
-                        <span>Name: </span>
-                        <span>From: </span>
-                        <span>Subjects: </span>
-                        <span>Price: </span>
-                        <span>Ratings: </span>
-                    </div>
-                    <div class="tutor-intro">
-                        <span>I will teach you programming!</span>
-                    </div>
-                    <div class="tutor-send-request">
-                        <button sec:authorize="!isAuthenticated()" onclick="openLoginForm()">Send a request</button>
-                        <button sec:authorize="isAuthenticated()" onclick="openRequestForm()">Send a request</button>
-                    </div>
-                </div>
-            </div>
-            <div class="tutor-container">
-                <div class="tutor-img">
-                    <img src="img/profile.jpg" />
-                </div>
-                <div class="tutor-inner-container">
-                    <div class="tutor-info">
-                        <span>Name: </span>
-                        <span>From: </span>
-                        <span>Subjects: </span>
-                        <span>Price: </span>
-                        <span>Ratings: </span>
-                    </div>
-                    <div class="tutor-intro">
-                        <span>I will teach you programming!</span>
-                    </div>
-                    <div class="tutor-send-request">
-                        <button sec:authorize="!isAuthenticated()" onclick="openLoginForm()">Send a request</button>
-                        <button sec:authorize="isAuthenticated()" onclick="openRequestForm()">Send a request</button>
-                    </div>
-                </div>
-            </div>
-            <div class="tutor-container">
-
-            </div>
-            <div class="tutor-container">
-
-            </div>
-            <div class="tutor-container">
-
-            </div>
+            
             <div class="pagination">
                 <ul class="ul">
                     <!-- <li class="btn prev"><span><i class="fas fa-angle-left"></i> Prev</span></li>
@@ -129,6 +80,7 @@
                     <li class="btn next"><span>Next <i class="fas fa-angle-right"></i></span></li> -->
                 </ul>
             </div>
+
             <div class="popup-overlay" id="popup-overlay-login"></div>
             <div class="popup-login">
                 <div class="popup-close" id="login-close" onclick="closeLoginForm()">&times;</div>
