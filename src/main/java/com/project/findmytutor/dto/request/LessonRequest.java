@@ -25,7 +25,6 @@ public class LessonRequest {
     @NotBlank(message = "Please set price")
     private String price;
 
-    @NotBlank(message = "This member does not exist.")
     private Member member;
 
     public Lesson toLesson() {
