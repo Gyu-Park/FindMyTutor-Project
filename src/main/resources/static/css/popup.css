@@ -343,8 +343,125 @@ body.showRegistrationForm .popup-registration {
     cursor: pointer;
 }
 
+/* post tutoring service popup */
+body.showPostForm #popup-overlay-post {
+    display: block;
+}
+
+body.showPostForm .popup-post {
+    position: fixed;
+    top: 55%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-post #post-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 40px;
+    height: 40px;
+    background: #4169e1;
+    color: #fefefe;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.popup-post {
+    position: absolute;
+    top: -200%;
+    left: 50%;
+    /* transform: translate(-50%, -50%) scale(1. 15); */
+    width: 500px;
+    height: 500px;
+    background: #fefefe;
+    z-index: 2;
+    opacity: 0;
+    box-shadow: 5px 5px 3px rgba(0,0,0,0.2);
+    border-radius: 30px;
+    transition: opacity 500ms ease-in-out;
+}
+
+.popup-post .form {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 100px 100px 100px 100px 100px;
+}
+
+.popup-post .form h1 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: #4169e1;
+    padding-top: 30px;
+}
+
+.popup-post .form .element {
+    padding: 0 20px;
+}
+
+.popup-post .form .element-name {
+    display: flex;
+    width: 92%;
+    margin: auto;
+}
+
+.popup-post .form .element-name .fname {
+    display: grid;
+    flex: 49%;
+}
+
+.popup-post .form .element-name .name-center {
+    flex: 2%;
+}
+
+.popup-post .form .element-name .lname {
+    display: grid;
+    flex: 49%;
+}
+
+.popup-post .form .element label,
+.popup-post .form .element-name label {
+    display: block;
+    text-align: left;
+    left: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #4169e1;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.popup-post .form input {
+    width: 100%;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #4169e1;
+    background: #fefefe;
+    border-radius: 20px;
+}
+
+.popup-post .form .element button {
+    margin-top: 8px;
+    width: 100%;
+    padding: 10px 0px;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    background: #4169e1;
+    color: #fefefe;
+}
+
 /* role selector */
-.element-role{
+.element-role {
     display: inline-flex;
     background: #fefefe;
     margin-top: 10px;
@@ -354,7 +471,8 @@ body.showRegistrationForm .popup-registration {
     justify-content: space-evenly;
     padding: 0 15px;
 }
-.element-role .option{
+
+.element-role .option {
     background: #fefefe;
     height: 100%;
     width: 100%;
@@ -368,14 +486,16 @@ body.showRegistrationForm .popup-registration {
     border: 2px solid lightgrey;
     transition: all 0.3s ease;
 }
-.element-role .option .dot{
+
+.element-role .option .dot {
     height: 20px;
     width: 20px;
     background: lightgrey;
     border-radius: 50%;
     position: relative;
 }
-.element-role .option .dot::before{
+
+.element-role .option .dot::before {
     position: absolute;
     content: "";
     top: 4px;
@@ -388,28 +508,188 @@ body.showRegistrationForm .popup-registration {
     transform: scale(1.5);
     transition: all 0.3s ease;
 }
+
 input[type="radio"]{
     display: none;
 }
+
 #role-tutor:checked:checked ~ .role-tutor,
-#role-student:checked:checked ~ .role-student{
+#role-student:checked:checked ~ .role-student {
     border-color: #4169e1;
     background: #4169e1;
 }
+
 #role-tutor:checked:checked ~ .role-tutor .dot,
-#role-student:checked:checked ~ .role-student .dot{
+#role-student:checked:checked ~ .role-student .dot {
     background: #fefefe;
 }
+
 #role-tutor:checked:checked ~ .role-tutor .dot::before,
-#role-student:checked:checked ~ .role-student .dot::before{
+#role-student:checked:checked ~ .role-student .dot::before {
     opacity: 1;
     transform: scale(1);
 }
-.element-role .option span{
+
+.element-role .option span {
     font-size: 20px;
     color: #808080;
 }
+
 #role-tutor:checked:checked ~ .role-tutor span,
-#role-student:checked:checked ~ .role-student span{
+#role-student:checked:checked ~ .role-student span {
+    color: #fefefe;
+}
+
+/* method selector */
+.element-method {
+    display: inline-flex;
+    background: #fefefe;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+ 
+.element-method .option {
+    background: #fefefe;
+    height: 50%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    padding: 0 10px;
+    border: 2px solid lightgrey;
+    transition: all 0.3s ease;
+}
+
+.element-method .option .dot {
+    height: 20px;
+    width: 20px;
+    background: lightgrey;
+    border-radius: 50%;
+    position: relative;
+}
+
+.element-method .option .dot::before {
+    position: absolute;
+    content: "";
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    background: #4169e1;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+}
+
+#method-online:checked:checked ~ .method-online,
+#method-inperson:checked:checked ~ .method-inperson {
+    border-color: #4169e1;
+    background: #4169e1;
+}
+
+#method-online:checked:checked ~ .method-online .dot,
+#method-inperson:checked:checked ~ .method-inperson .dot {
+    background: #fefefe;
+}
+
+#method-online:checked:checked ~ .method-online .dot::before,
+#method-inperson:checked:checked ~ .method-inperson .dot::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.element-method .option span {
+    font-size: 20px;
+    color: #808080;
+}
+
+#method-online:checked:checked ~ .method-online span,
+#method-inperson:checked:checked ~ .method-inperson span {
+    color: #fefefe;
+}
+
+/* subject selector */
+.element-subject {
+    display: inline-flex;
+    background: #fefefe;
+    margin-top: 10px;
+    width: 100%;
+    height: 50%;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 15px;
+}
+ 
+.element-subject .option {
+    background: #fefefe;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    padding: 0 10px;
+    border: 2px solid lightgrey;
+    transition: all 0.3s ease;
+}
+
+.element-subject .option .dot {
+    height: 20px;
+    width: 20px;
+    background: lightgrey;
+    border-radius: 50%;
+    position: relative;
+}
+
+.element-subject .option .dot::before {
+    position: absolute;
+    content: "";
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    background: #4169e1;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+}
+
+#subject-prog:checked:checked ~ .subject-prog,
+#subject-math:checked:checked ~ .subject-math,
+#subject-eng:checked:checked ~ .subject-eng {
+    border-color: #4169e1;
+    background: #4169e1;
+}
+
+#subject-prog:checked:checked ~ .subject-prog .dot,
+#subject-math:checked:checked ~ .subject-math .dot,
+#subject-eng:checked:checked ~ .subject-eng .dot {
+    background: #fefefe;
+}
+
+#subject-prog:checked:checked ~ .subject-prog .dot::before,
+#subject-math:checked:checked ~ .subject-math .dot::before,
+#subject-eng:checked:checked ~ .subject-eng .dot::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.element-subject .option span {
+    font-size: 14px;
+    color: #808080;
+}
+
+#subject-prog:checked:checked ~ .subject-prog span,
+#subject-math:checked:checked ~ .subject-math span,
+#subject-eng:checked:checked ~ .subject-eng span {
     color: #fefefe;
 }
