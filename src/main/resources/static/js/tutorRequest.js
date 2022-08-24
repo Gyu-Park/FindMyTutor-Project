@@ -8,12 +8,13 @@ $("#btn-post").on('click', function(e) {
     var lessonRequest = {
                     method: method,
                     subject: subject,
-                    price: $("#post-price").val()
+                    price: $("#post-price").val(),
+                    member: null
                 };
 
     $.ajax({
            type: "POST",
-           url: "/api/auth/signup",
+           url: "/api/lesson/post",
            data: JSON.stringify(lessonRequest),
            contentType : "application/json; charset=utf-8",
            success: function(data)
