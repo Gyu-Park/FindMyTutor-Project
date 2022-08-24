@@ -192,7 +192,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="LaS-item">
+                <div class="LaS-item" th:if="${isTutor}">
                     <a th:href="@{/account/tutorRequest}" class="tutorRequest-btn">
                         <button type="form-edit" class="">Manage Tutoring Requests</button>
                     </a>
