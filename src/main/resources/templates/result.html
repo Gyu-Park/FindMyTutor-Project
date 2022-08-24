@@ -23,7 +23,7 @@
             <nav class="nav-bar">
                 <ul>
                     <li>
-                        <a th:href="@{/}" class="active">Find My Tutor</a>
+                        <a th:href="@{/}">Find My Tutor</a>
                     </li>
                     <li style="display: inline-block">
                         <a sec:authorize="!isAuthenticated()" onclick="openLoginForm()">Sign in</a>
@@ -32,7 +32,7 @@
                         </form>
                     </li>
                     <li>
-                        <a href="">Account</a>
+                        <a th:href="@{/account}">Account</a>
                     </li>
                 </ul>
             </nav>
