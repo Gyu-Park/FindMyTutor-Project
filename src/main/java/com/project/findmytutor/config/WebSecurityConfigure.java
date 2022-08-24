@@ -55,11 +55,12 @@ public class WebSecurityConfigure {
     http.csrf().disable()
 
         // config for h2-console
-        // .headers()
-        // .frameOptions()
-        // .sameOrigin()
+        .headers()
+        .frameOptions()
+        .sameOrigin()
 
         // requests handling
+        .and()
         .authenticationProvider(authenticationProvider())
         .authorizeRequests()
         // .antMatchers("/", "/home").authenticated()
