@@ -17,6 +17,8 @@ import lombok.Setter;
 @Data
 public class SignupRequest {
 
+    private String role;
+
     private String firstName;
 
     private String lastName;
@@ -27,7 +29,7 @@ public class SignupRequest {
     private String password;
 
     public Member toMember(PasswordEncoder passwordEncoder) {
-        Member member = new Member(email, passwordEncoder.encode(password), firstName + " " + lastName);
+        Member member = new Member(email, passwordEncoder.encode(password), firstName + " " + lastName, role);
         return member;
     }
     

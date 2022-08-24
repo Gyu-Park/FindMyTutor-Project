@@ -1,7 +1,13 @@
 // sign-up
 $("#btn-signup").on('click', function(e) {
     e.preventDefault();
+    var role;
+    if (document.getElementById("role-tutor").checked)
+        role = document.getElementById("role-tutor").value;
+    else
+        role = document.getElementById("role-student").value;
     var signupRequest = {
+                    role: role,
                     firstName: $("#signup-firstName").val(),
                     lastName: $("#signup-lastName").val(),
                     email: $("#signup-email").val(),

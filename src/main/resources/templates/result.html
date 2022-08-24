@@ -60,7 +60,8 @@
                         <span>I will teach you programming!</span>
                     </div>
                     <div class="tutor-send-request">
-                        <button onclick="openLoginForm()">Send a request</button>
+                        <button sec:authorize="!isAuthenticated()" onclick="openLoginForm()">Send a request</button>
+                        <button sec:authorize="isAuthenticated()" onclick="openRequestForm()">Send a request</button>
                     </div>
                 </div>
             </div>
@@ -80,7 +81,8 @@
                         <span>I will teach you programming!</span>
                     </div>
                     <div class="tutor-send-request">
-                        <button onclick="openRequestForm()">Send a request</button>
+                        <button sec:authorize="!isAuthenticated()" onclick="openLoginForm()">Send a request</button>
+                        <button sec:authorize="isAuthenticated()" onclick="openRequestForm()">Send a request</button>
                     </div>
                 </div>
             </div>
@@ -100,7 +102,8 @@
                         <span>I will teach you programming!</span>
                     </div>
                     <div class="tutor-send-request">
-                        <button onclick="openRegistrationForm()">Send a request</button>
+                        <button sec:authorize="!isAuthenticated()" onclick="openLoginForm()">Send a request</button>
+                        <button sec:authorize="isAuthenticated()" onclick="openRequestForm()">Send a request</button>
                     </div>
                 </div>
             </div>
@@ -152,6 +155,18 @@
                 <div class="popup-close" id="registration-close" onclick="closeRegistrationForm()">&times;</div>
                 <form action="/api/auth/signup" class="form" method="post" id="signup-form">
                     <h1>Sign up</h1>
+                    <div class="element-role">
+                        <input type="radio" name="role" id="role-tutor" value="tutor" checked>
+                        <input type="radio" name="role" id="role-student" value="student">
+                        <label for="role-tutor" class="option role-tutor">
+                            <div class="dot"></div>
+                            <span>Tutor</span>
+                        </label>
+                        <label for="role-student" class="option role-student">
+                            <div class="dot"></div>
+                            <span>Student</span>
+                        </label>
+                    </div>
                     <div class="element-name">
                         <div class="fname">
                             <label for="text">First Name</label>
