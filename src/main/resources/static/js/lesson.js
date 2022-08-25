@@ -30,40 +30,16 @@ $("#btn-post").on('click', function(e) {
 });
 
 // search lessons
-var method;
+var method = document.getElementById('method');
 function getMethod(element) {
-    method = element.value;
+    method.value = element.value;
+
 }
-var subject;
+var subject = document.getElementById('subject');
 function getSubject(element) {
-    subject = element.value;
+    subject.value = element.value;
 }
-var price;
+var price = document.getElementById('price');
 function getPrice(element) {
-    price = element.value;
+    price.value = element.value;
 }
-
-$(".submitBtn").on('click', function(e) {
-    e.preventDefault();
-    var lessonSearchRequest = {
-                    method: method,
-                    subject: subject,
-                    price: price,
-                };
-
-    $.ajax({
-           type: "POST",
-           url: "/api/lesson/search",
-           data: JSON.stringify(lessonSearchRequest),
-           contentType : "application/json; charset=utf-8",
-           success: function(data)
-           {
-                // show results
-                window.location.href = "/result";
-           },
-           error: function(data) {
-               alert(data);
-               console.log("error");
-           }
-         });
-});
