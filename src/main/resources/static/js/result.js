@@ -1,6 +1,6 @@
 /* pagination */
 const ulTag = document.querySelector(".ul");
-let totalPages = 20;
+let totalPages = document.getElementById('totalPage').value;
 
 function element(totalPages, page) {
     let liTag = '';
@@ -12,15 +12,15 @@ function element(totalPages, page) {
     }
 
     if (page > 2) {
-        liTag += `<li class="numb" onclick="element(totalPages, 1)"><span>1</span></li>`;
+        liTag += `<li class="numb" onclick="element(totalPages, 1)" value="1"><span>1</span></li>`;
         if (page > 3) {
             liTag += `<li class="dots"><span>...</span></li>`;
         }
     }
 
-    if (page == totalPages) {
+    if (page == totalPages && totalPages > 2) {
         beforePages -= 2;
-    } else if (page == totalPages - 1) {
+    } else if (page == totalPages - 1 && totalPages > 2) {
         beforePages -= 1;
     }
 
@@ -42,14 +42,14 @@ function element(totalPages, page) {
         } else {
             activeLi = "";
         }
-        liTag += `<li class="numb ${activeLi}" onclick="element(totalPages, ${pageLength})"><span>${pageLength}</span></li>`;
+        liTag += `<li class="numb ${activeLi}" onclick="element(totalPages, ${pageLength})" value="${pageLength}"><span>${pageLength}</span></li>`;
     }
 
     if (page < totalPages - 1) {
         if (page < totalPages - 2) {
             liTag += `<li class="dots"><span>...</span></li>`;
         }
-        liTag += `<li class="numb" onclick="element(totalPages, ${totalPages})"><span>${totalPages}</span></li>`;
+        liTag += `<li class="numb" onclick="element(totalPages, ${totalPages})" value="${totalPages}"><span>${totalPages}</span></li>`;
     }
 
     if (page < totalPages) {
@@ -57,4 +57,24 @@ function element(totalPages, page) {
     }
     ulTag.innerHTML = liTag;
 }
-element(totalPages, 1);
+var page = document.getElementById('page');
+element(totalPages, page.value);
+
+var numb = document.querySelectorAll(".numb");
+var method = document.getElementById('method').value;
+var subject = document.getElementById('subject').value;
+var price = document.getElementById('price').value;
+function reload() {
+    for (var i = 0; i < numb.length; i++) {
+        numb[i].addEventListener("click", reloadMethod = (e) => {
+            page.value = e.currentTarget.getAttribute("value");
+            var url = "http://localhost:8080/result?" 
+                            + "page=" + page.value 
+                            +"&method=" + method 
+                            + "&subject=" + subject 
+                            + "&price=" + price
+            window.location = url;
+        });
+    }
+}
+reload();
