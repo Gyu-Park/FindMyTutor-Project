@@ -8,7 +8,8 @@ function element(totalPages, page) {
     let beforePages = page - 1;
     let afterPages = page + 1;
     if (page > 1) {
-        liTag += `<li class="btn prev" onclick="element(totalPages, ${page - 1})"><span><i class="fas fa-angle-left"></i> Prev</span></li>`;
+        // let prevPage = page - 1;
+        liTag += `<li class="btn prev" onclick="element(totalPages, ${page - 1})" value="${page - 1}"><span><i class="fas fa-angle-left"></i> Prev</span></li>`;
     }
 
     if (page > 2) {
@@ -53,7 +54,8 @@ function element(totalPages, page) {
     }
 
     if (page < totalPages) {
-        liTag += `<li class="btn next" onclick="element(totalPages, ${page + 1})"><span>Next <i class="fas fa-angle-right"></i></span></li>`;
+        let nextPage = ++page;
+        liTag += `<li class="btn next" onclick="element(totalPages, ${nextPage})" value="${nextPage}"><span>Next <i class="fas fa-angle-right"></i></span></li>`;
     }
     ulTag.innerHTML = liTag;
 }
@@ -61,10 +63,13 @@ var page = document.getElementById('page');
 element(totalPages, page.value);
 
 var numb = document.querySelectorAll(".numb");
+var btnNext = document.querySelector(".next");
+var btnPrev = document.querySelector(".prev");
 var method = document.getElementById('method').value;
 var subject = document.getElementById('subject').value;
 var price = document.getElementById('price').value;
-function reload() {
+
+function reload1() {
     for (var i = 0; i < numb.length; i++) {
         numb[i].addEventListener("click", reloadMethod = (e) => {
             page.value = e.currentTarget.getAttribute("value");
@@ -77,4 +82,34 @@ function reload() {
         });
     }
 }
-reload();
+
+function reload2() {
+    btnNext.addEventListener("click", reloadMethod = (e) => {
+        page.value = e.currentTarget.getAttribute("value");
+        var url = "http://localhost:8080/result?" 
+                        + "page=" + page.value 
+                        +"&method=" + method 
+                        + "&subject=" + subject 
+                        + "&price=" + price
+        window.location = url;
+    });
+}
+
+function reload3() {
+    btnPrev.addEventListener("click", reloadMethod = (e) => {
+        console.log(page.value);
+        page.value = e.currentTarget.getAttribute("value");
+        var url = "http://localhost:8080/result?" 
+                        + "page=" + page.value 
+                        +"&method=" + method 
+                        + "&subject=" + subject 
+                        + "&price=" + price
+        window.location = url;
+    });
+}
+
+reload1();
+if(page.value < totalPages)
+    reload2();
+if(page.value > 1)
+    reload3();
