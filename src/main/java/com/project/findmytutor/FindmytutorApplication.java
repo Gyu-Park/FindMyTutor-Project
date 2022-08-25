@@ -49,7 +49,67 @@ public class FindmytutorApplication {
 			lessonRepository.save(new Lesson(null, 
 											"online", 
 											"programming", 
+											"41", 
+											null, 
+											memberRepository.findByEmail("gp2693@gmail.com").orElseThrow()));
+			lessonRepository.save(new Lesson(null, 
+											"online", 
+											"programming", 
+											"42", 
+											null, 
+											memberRepository.findByEmail("gp2693@gmail.com").orElseThrow()));
+			lessonRepository.save(new Lesson(null, 
+											"online", 
+											"programming", 
+											"43", 
+											null, 
+											memberRepository.findByEmail("gp2693@gmail.com").orElseThrow()));
+			lessonRepository.save(new Lesson(null, 
+											"online", 
+											"programming", 
+											"44", 
+											null, 
+											memberRepository.findByEmail("gp2693@gmail.com").orElseThrow()));
+			lessonRepository.save(new Lesson(null, 
+											"online", 
+											"programming", 
 											"45", 
+											null, 
+											memberRepository.findByEmail("gp2693@gmail.com").orElseThrow()));
+			lessonRepository.save(new Lesson(null, 
+											"online", 
+											"programming", 
+											"46", 
+											null, 
+											memberRepository.findByEmail("gp2693@gmail.com").orElseThrow()));
+			lessonRepository.save(new Lesson(null, 
+											"online", 
+											"programming", 
+											"47", 
+											null, 
+											memberRepository.findByEmail("gp2693@gmail.com").orElseThrow()));
+			lessonRepository.save(new Lesson(null, 
+											"online", 
+											"programming", 
+											"48", 
+											null, 
+											memberRepository.findByEmail("gp2693@gmail.com").orElseThrow()));
+			lessonRepository.save(new Lesson(null, 
+											"online", 
+											"programming", 
+											"49", 
+											null, 
+											memberRepository.findByEmail("gp2693@gmail.com").orElseThrow()));
+			lessonRepository.save(new Lesson(null, 
+											"online", 
+											"programming", 
+											"49", 
+											null, 
+											memberRepository.findByEmail("gp2693@gmail.com").orElseThrow()));
+			lessonRepository.save(new Lesson(null, 
+											"online", 
+											"programming", 
+											"50", 
 											null, 
 											memberRepository.findByEmail("gp2693@gmail.com").orElseThrow()));
 		};
