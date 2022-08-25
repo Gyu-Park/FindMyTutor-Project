@@ -22,10 +22,12 @@ public class LessonService {
     }
 
     public List<Lesson> search(LessonSearchRequest lessonSearchRequest) {
-        return lessonRepository.findByMethodAndSubjectAndPrice(
+        int price = Integer.parseInt(lessonSearchRequest.getPrice()) + 10;
+        return lessonRepository.findByMethodAndSubjectAndPriceBetween(
                                             lessonSearchRequest.getMethod(), 
                                             lessonSearchRequest.getSubject(), 
-                                            lessonSearchRequest.getPrice())
+                                            lessonSearchRequest.getPrice(),
+                                            String.valueOf(price))
                                             .orElse(null);
     }
 }

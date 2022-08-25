@@ -10,5 +10,5 @@ import com.project.findmytutor.domain.Lesson;
 
 @Repository
 public interface LessonRepository extends JpaRepository<Lesson, Long> {
-    Optional<List<Lesson>> findByMethodAndSubjectAndPrice (String method, String subject, String price);
+    Optional<List<Lesson>> findByMethodAndSubjectAndPriceBetween (String method, String subject, String price1, String price2);
 }
