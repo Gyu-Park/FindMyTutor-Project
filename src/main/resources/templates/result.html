@@ -62,7 +62,7 @@
                     </div>
                     <div class="tutor-send-request">
                         <button sec:authorize="!isAuthenticated()" onclick="openLoginForm()">Send a request</button>
-                        <button sec:authorize="isAuthenticated()" onclick="openRequestForm()">Send a request</button>
+                        <button sec:authorize="isAuthenticated()" th:onclick="openRequestForm([[${lesson.id}]])">Send a request</button>
                     </div>
                 </div>
             </div>
@@ -162,19 +162,22 @@
             <div class="popup-overlay" id="popup-overlay-request"></div>
             <div class="popup-request">
                 <div class="popup-close" id="request-close" onclick="closeRequestForm()">&times;</div>
-                <div class="form">
+                <form class="form" action="/api/requestCard/sendRequestCard" method="post">
+                    <input type="hidden" id="lessonId" value="">
+                    <input type="hidden" id="sender" th:value="${#authentication.getPrincipal().getUsername()}">
                     <h1>Send a request to this tutor</h1>
                     <div class="element">
-                        <textarea type="text" id="request"></textarea>
+                        <textarea type="text" id="message" name="message"></textarea>
                     </div>
                     <div class="element">
-                        <button>Send</button>
+                        <button id="btn-request">Send</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
 
         <script src="js/result.js"></script>
         <script src="js/signinAndSignup.js"></script>
+        <script src="js/tutoringRequest.js"></script>
     </body>
 </html>
