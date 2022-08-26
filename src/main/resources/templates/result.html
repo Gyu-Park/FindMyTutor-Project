@@ -164,7 +164,7 @@
                 <div class="popup-close" id="request-close" onclick="closeRequestForm()">&times;</div>
                 <form class="form" action="/api/requestCard/sendRequestCard" method="post">
                     <input type="hidden" id="lessonId" value="">
-                    <input type="hidden" id="sender" th:value="${#authentication.getPrincipal().getUsername()}">
+                    <input type="hidden" sec:authorize="isAuthenticated()" id="sender" th:value="${#authentication.getPrincipal().getUsername()}">
                     <h1>Send a request to this tutor</h1>
                     <div class="element">
                         <textarea type="text" id="message" name="message"></textarea>
