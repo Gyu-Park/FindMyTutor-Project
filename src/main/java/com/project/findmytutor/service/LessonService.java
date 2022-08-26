@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.project.findmytutor.domain.Lesson;
@@ -20,6 +21,10 @@ import lombok.RequiredArgsConstructor;
 public class LessonService {
 
     private final LessonRepository lessonRepository;
+
+    public Lesson findById(Long id) {
+        return lessonRepository.findById(id).orElseThrow(() -> new UsernameNotFoundException("There's no such lesson."));
+    } 
 
     public Lesson post(LessonPostRequest lessonRequest) {
         return lessonRepository.save(lessonRequest.toLesson());
