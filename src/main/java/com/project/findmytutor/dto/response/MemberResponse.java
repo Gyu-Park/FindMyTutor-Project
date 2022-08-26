@@ -4,13 +4,12 @@ import lombok.Getter;
 
 import com.project.findmytutor.domain.Member;
 
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 @AllArgsConstructor
 @ToString
 public class MemberResponse {
