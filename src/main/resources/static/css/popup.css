@@ -13,7 +13,7 @@
 /* login popup */
 .popup-login {
     position: absolute;
-    top: -150%;
+    top: -300%;
     left: 50%;
     /* transform: translate(-50%, -50%) scale(1. 15); */
     max-width: 360px;
@@ -163,7 +163,7 @@ body.showRequestForm .popup-request {
 
 .popup-request {
     position: absolute;
-    top: -150%;
+    top: -300%;
     left: 50%;
     /* transform: translate(-50%, -50%) scale(1. 15); */
     width: 500px;
@@ -248,7 +248,7 @@ body.showRegistrationForm .popup-registration {
 
 .popup-registration {
     position: absolute;
-    top: -200%;
+    top: -300%;
     left: 50%;
     /* transform: translate(-50%, -50%) scale(1. 15); */
     width: 420px;
