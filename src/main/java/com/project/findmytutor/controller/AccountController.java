@@ -31,9 +31,14 @@ public class AccountController {
         return "account";
     }
 
-    @GetMapping("/tutorRequest")
-    public String tutorRequest() {
-        return "tutorRequest";
+    @GetMapping("/tutoringPost")
+    public String tutoringPost() {
+        return "tutoringPost";
+    }
+
+    @GetMapping("/tutoringRequest")
+    public String tutoringRequest() {
+        return "tutoringRequest";
     }
     
 }
