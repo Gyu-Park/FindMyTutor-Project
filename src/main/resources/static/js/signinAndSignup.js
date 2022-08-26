@@ -74,8 +74,9 @@ function closeRegistrationForm() {
 }
 
 // request form
-function openRequestForm() {
+function openRequestForm(long) {
     document.body.classList.add("showRequestForm");
+    document.getElementById("lessonId").value = new Number(long);
 }
 function closeRequestForm() {
     document.body.classList.remove("showRequestForm");
