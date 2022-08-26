@@ -49,12 +49,15 @@
     border: none;
     font-size: 11px;
     padding: 6px;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 .sender-info {
     margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
-    height: 150px;
+    min-height: 150px;
 }
 
 .sender-info .col-30 {
@@ -86,4 +89,5 @@
     padding: 6px;
     width: 86%;
     cursor: pointer;
+    margin: 3px;
 }
