@@ -193,8 +193,13 @@
                     </form>
                 </div>
                 <div class="LaS-item" th:if="${isTutor}">
-                    <a th:href="@{/account/tutorRequest}" class="tutorRequest-btn">
-                        <button type="form-edit" class="">Manage Tutoring Requests</button>
+                    <a th:href="@{/account/tutoringPost}" class="tutorRequest-btn">
+                        <button type="form-edit" class="">Manage Your Tutoring Posts</button>
+                    </a>
+                </div>
+                <div class="LaS-item" th:if="${isTutor}">
+                    <a th:href="@{/account/tutoringRequest}" class="tutorRequest-btn">
+                        <button type="form-edit" class="">Ckeck Tutoring Requests</button>
                     </a>
                 </div>
             </div>
