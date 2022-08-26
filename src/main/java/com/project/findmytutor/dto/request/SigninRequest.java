@@ -2,7 +2,6 @@ package com.project.findmytutor.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Email;
@@ -12,7 +11,6 @@ import javax.validation.constraints.NotNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 @Data
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class SigninRequest {
