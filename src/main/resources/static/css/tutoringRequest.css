@@ -75,7 +75,8 @@
     text-align: left;
 }
 
-.delete-btn {
+.delete-btn,
+.check-btn {
     background: #4169e1;
     color: #fefefe;
     font-weight: bold;
