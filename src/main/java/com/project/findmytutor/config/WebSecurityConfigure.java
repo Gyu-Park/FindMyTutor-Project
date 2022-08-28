@@ -63,13 +63,17 @@ public class WebSecurityConfigure {
         .and()
         .authenticationProvider(authenticationProvider())
         .authorizeRequests()
-        // .antMatchers("/", "/home").authenticated()
+        .antMatchers("/account/**").authenticated()
         .anyRequest().permitAll()
+
+        .and()
+        .formLogin().loginPage("/")
 
         .and()
         .logout()
             .permitAll()
-            .logoutSuccessHandler(new CustomLogoutSuccessHandler());
+            .logoutSuccessHandler(new CustomLogoutSuccessHandler())
+            .logoutSuccessUrl("/");
 
         return http.build();
     }
