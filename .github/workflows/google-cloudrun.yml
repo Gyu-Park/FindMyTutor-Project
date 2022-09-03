@@ -53,7 +53,7 @@ on:
 env:
   PROJECT_ID: artful-willow-361400 # TODO: update Google Cloud project id
   GAR_LOCATION: us-central1-b # TODO: update Artifact Registry location
-  SERVICE: FindMyTutor-Project # TODO: update Cloud Run service name
+  SERVICE: findmytutor-project # TODO: update Cloud Run service name
   REGION: us-central1-b # TODO: update Cloud Run service region
 
 jobs:
