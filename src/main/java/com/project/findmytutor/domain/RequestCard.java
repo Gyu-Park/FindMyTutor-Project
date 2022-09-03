@@ -3,6 +3,7 @@ package com.project.findmytutor.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -24,7 +25,7 @@ public class RequestCard {
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
@@ -35,7 +36,7 @@ public class RequestCard {
 
     @Column
     private String message;
-    
+
     @ManyToOne
     private Lesson lesson;
 }
