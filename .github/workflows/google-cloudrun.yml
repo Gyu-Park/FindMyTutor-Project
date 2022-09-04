@@ -74,7 +74,8 @@ jobs:
           java-version: "11"
           distribution: "temurin"
 
-      - uses: gyu-park/findmytutor-project@v1
+      - name: Google Cloud SQL Proxy
+        uses: mattes/gce-cloudsql-proxy-action@v1.0.1
         with:
           creds: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
           instance: artful-willow-361400:us-central1:findmytutor
