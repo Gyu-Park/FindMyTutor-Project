@@ -106,3 +106,7 @@
 2022-09-03 16:51:53,685 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.7.2, Spring v5.3.22
 2022-09-03 16:51:53,685 INFO org.springframework.boot.SpringApplication [main] The following 1 profile is active: "dev"
 2022-09-03 16:51:59,816 INFO org.springframework.boot.StartupInfoLogger [main] Started FindmytutorApplicationTests in 6.825 seconds (JVM running for 7.475)
+2022-09-03 22:31:10,155 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting FindmytutorApplication using Java 11.0.2 on DESKTOP-2CSIEDB with PID 20824 (C:\Users\Gyuseok\Desktop\Visual Studio WorkSpace\FindMyTutor-Project\target\classes started by Gyuseok in C:\Users\Gyuseok\Desktop\Visual Studio WorkSpace\FindMyTutor-Project)
+2022-09-03 22:31:10,156 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.2, Spring v5.3.22
+2022-09-03 22:31:10,157 INFO org.springframework.boot.SpringApplication [restartedMain] The following 1 profile is active: "dev"
+2022-09-03 22:31:15,784 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started FindmytutorApplication in 6.382 seconds (JVM running for 6.786)
