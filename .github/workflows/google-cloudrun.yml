@@ -65,6 +65,13 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
+      # NOTE: Alternative option - authentication via credentials json
+      - name: Google Auth
+        id: auth
+        uses: "google-github-actions/auth@v0"
+        with:
+          credentials_json: "${{ secrets.GCP_CREDENTIALS }}"
+
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -77,20 +84,13 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 
-      - name: Google Auth
-        id: auth
-        uses: "google-github-actions/auth@v0"
-        with:
-          token_format: "access_token"
-          workload_identity_provider: projects/475350064313/locations/global/workloadIdentityPools/my-pool/providers/my-provider
-          service_account: my-service-account@artful-willow-361400.iam.gserviceaccount.com
-
-      # NOTE: Alternative option - authentication via credentials json
       # - name: Google Auth
       #   id: auth
-      #   uses: 'google-github-actions/auth@v0'
+      #   uses: "google-github-actions/auth@v0"
       #   with:
-      #     credentials_json: '${{ secrets.GCP_CREDENTIALS }}''
+      #     token_format: "access_token"
+      #     workload_identity_provider: projects/475350064313/locations/global/workloadIdentityPools/my-pool/providers/my-provider
+      #     service_account: my-service-account@artful-willow-361400.iam.gserviceaccount.com
 
       # BEGIN - Docker auth and build (NOTE: If you already have a container image, these Docker steps can be omitted)
 
