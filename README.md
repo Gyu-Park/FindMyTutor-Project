@@ -1,5 +1,5 @@
 ## FindMyTytor Web App Project (Personal Project)
-URL: https://findmytutor-project-h5tl6bjfhq-uc.a.run.app (not working right now becuase gcp free trial ends)
+URL: https://findmytutor-project-h5tl6bjfhq-uc.a.run.app (not working right now becuase gcp free trial ended)
 
 ## Tech Stacks
 Frontend
